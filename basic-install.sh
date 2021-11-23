@@ -14,7 +14,7 @@ echo "127.0.1.1 alokpc.localdomain alokpc" >> /etc/hosts
 # change password
 echo root:password| chpasswd
 
-pacman -S grub efibootmgr networkmanager network-manager-applet xorg mesa kitty firefox picom pcmanfm gnome-keyring polkit-gnome lxappearance numlockx copyq conky feh bpytop ranger dunst arc-gtk-theme arc-icon-theme ttf-jetbrains-mono ttf-cascadia-code noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid ttf-font-awesome ttf-ibm-plex ttf-joypixels ttf-liberation ttf-opensans dialog wpa_supplicant mtools dosfstools reflector base-devel avahi xdg-user-dirs xdg-utils gvfs gvfs-smb gvfs-mtp nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pulseaudio pulseaudio-alsa pavucontrol bash-completion openssh rsync reflector acpi acpi_call tlp virt-manager qemu qemu-arch-extra edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font
+pacman -S grub efibootmgr networkmanager network-manager-applet xorg mesa kitty zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting firefox picom pcmanfm gnome-keyring polkit-gnome lxappearance numlockx copyq conky feh bpytop ranger dunst arc-gtk-theme arc-icon-theme ttf-jetbrains-mono ttf-cascadia-code noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid ttf-font-awesome thunar lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter ttf-ibm-plex ttf-joypixels ttf-liberation ttf-opensans dialog wpa_supplicant mtools dosfstools reflector base-devel avahi xdg-user-dirs xdg-utils gvfs gvfs-smb gvfs-mtp nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pulseaudio pulseaudio-alsa pavucontrol bash-completion openssh rsync reflector acpi acpi_call tlp virt-manager qemu qemu-arch-extra edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font
 
 pacman -S --noconfirm xf86-video-intel
 pacman -S --noconfirm nvidia nvidia-utils nvidia-settings
@@ -34,6 +34,7 @@ systemctl enable libvirtd
 systemctl enable firewalld
 systemctl enable acpid
 systemctl enable systemd-resolved.service 
+systemctl enable lightdm
 
 useradd -m aloks 
 
