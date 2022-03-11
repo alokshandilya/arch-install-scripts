@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir /etc/X11/xorg.conf.d
 touch /etc/X11/xorg.conf.d/90-touchpad.conf
 echo "Section \"InputClass\"" >> /etc/X11/xorg.conf.d/90-touchpad.conf
 echo "        Identifier \"touchpad\"" >> /etc/X11/xorg.conf.d/90-touchpad.conf

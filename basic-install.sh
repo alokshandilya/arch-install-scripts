@@ -2,8 +2,8 @@
 
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
-sed -i '177s/.//' /etc/locale.gen
-sed -i '168s/.//' /etc/locale.gen
+sed -i '169s/.//' /etc/locale.gen
+sed -i '178s/.//' /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "alokpc" >> /etc/hostname
@@ -14,11 +14,17 @@ echo "127.0.1.1 alokpc.localdomain alokpc" >> /etc/hosts
 # change password
 echo root:password| chpasswd
 
-# change grub to grub-btrfs [for BTRFS]
-pacman -S --noconfirm grub efibootmgr networkmanager network-manager-applet xorg mesa kitty zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting firefox picom pcmanfm gnome-keyring polkit-gnome lxappearance numlockx copyq conky feh bpytop ranger rofi nitrogen ttc-iosevka capitaine-cursors kvantum-qt5 qt5ct python-pip python-pillow github-cli hub dunst arc-gtk-theme arc-icon-theme ttf-jetbrains-mono ttf-cascadia-code noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid ttf-font-awesome thunar lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter ttf-ibm-plex ttf-joypixels ttf-liberation ttf-opensans dialog wpa_supplicant mtools dosfstools reflector base-devel avahi xdg-user-dirs xdg-utils gvfs gvfs-smb gvfs-mtp nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pulseaudio pulseaudio-alsa pavucontrol bash-completion openssh rsync reflector acpi acpi_call tlp virt-manager qemu qemu-arch-extra edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font
+# chooose grub to grub-btrfs [for BTRFS]
+#pacman -S grub
+pacman -S grub-btrfs
+pacman -S efibootmgr networkmanager network-manager-applet xorg mesa kitty zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting firefox picom pcmanfm gnome-keyring polkit-gnome lxappearance numlockx copyq conky feh bpytop ranger rofi nitrogen ttc-iosevka capitaine-cursors kvantum-qt5 qt5ct python-pip python-pillow github-cli hub dunst arc-gtk-theme arc-icon-theme ttf-jetbrains-mono ttf-cascadia-code noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-bitstream-vera ttf-croscore ttf-dejavu ttf-droid ttf-font-awesome thunar lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter ttf-ibm-plex ttf-joypixels ttf-liberation ttf-opensans dialog wpa_supplicant mtools dosfstools reflector base-devel avahi xdg-user-dirs xdg-utils gvfs gvfs-smb gvfs-mtp nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pulseaudio pulseaudio-alsa pavucontrol bash-completion openssh rsync reflector acpi tlp virt-manager qemu qemu-arch-extra edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset firewalld flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font
+
+# LTS or Normal
+pacman -S acpi_call-lts nvidia-lts
+#pacman -S acpi_call nvidia
 
 pacman -S --noconfirm xf86-video-intel
-pacman -S --noconfirm nvidia nvidia-utils nvidia-settings
+pacman -S --noconfirm nvidia-utils nvidia-settings
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
