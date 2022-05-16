@@ -1,6 +1,11 @@
 #!/bin/bash
 
+# Install paru-bin (AUR Helper)
+git clone https://aur.archlinux.org/paru-bin.git
+cd paru-bin
+makepkg -si
 cd
+
 git clone https://github.com/alokshandilya/suckless.git
 cd suckless/dmenu-5.0
 sudo make clean install
@@ -11,11 +16,13 @@ sudo make clean install
 cd ../st
 sudo make clean install
 cp -r ../.dwm ~/
+cd
 
-paru -S libxft-bgra-git
+paru -S bat dash libxft-bgra-git nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
 
 # Lightdm Entry
 cd
+sudo mkdir /usr/share/xsessions
 sudo touch /usr/share/xsessions/dwm.desktop
 echo "[Desktop Entry]" | sudo tee -a /usr/share/xsessions/dwm.desktop
 echo "Encoding=UTF-8" | sudo tee -a /usr/share/xsessions/dwm.desktop
