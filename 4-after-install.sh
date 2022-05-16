@@ -16,6 +16,6 @@ sudo modprobe vboxdrv
 # Install some packages and stuff
 pip install black
 chsh -s /usr/bin/zsh
-paru -S stylua intellij-idea-community-edition pycharm-community-edition gparted mpv yt-dlp libreoffice-fresh tumbler thunar-volman thunar-archive-plugin thunar-media-plugin exa fzf zoxide ripgrep neovim python-neovim xclip
+paru -S stylua intellij-idea-community-edition pycharm-community-edition gparted mpv yt-dlp libreoffice-fresh tumbler thunar-volman thunar-archive-plugin exa fzf zoxide ripgrep neovim python-neovim xclip libgnome-keyring python-keyring
 curl -fsSL https://fnm.vercel.app/install | bash
 usermod -aG adbusers vboxusers aloks
