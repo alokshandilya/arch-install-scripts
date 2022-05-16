@@ -19,5 +19,8 @@ sudo systemctl enable --now ananicy-cpp.service
 paru -S virtualbox virtualbox-guest-iso virtualbox-ext-oracle
 sudo modprobe vboxdrv
 
-
+# Install some packages and stuff
+pip install black
+chsh -s /usr/bin/zsh
+paru -S stylua intellij-idea-community-edition pycharm-community-edition gparted mpv yt-dlp libreoffice-fresh 
 usermod -aG adbusers vboxusers aloks
