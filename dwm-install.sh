@@ -15,9 +15,10 @@ cp -r ../.dwm ~/
 paru -S libxft-bgra-git
 
 # Lightdm Entry
+cd
 sudo touch /usr/share/xsessions/dwm.desktop
-echo "[Desktop Entry]" >> /usr/share/xsession/dwm.desktop
-echo "Encoding=UTF-8" >> /usr/share/xsession/dwm.desktop
-echo "Name=dwm" >> /usr/share/xsession/dwm.desktop
-echo "Comment=Dynamic Window Manager" >> /usr/share/xsession/dwm.desktop
-echo "Exec=~/.dwm/autostart" >> /usr/share/xsession/dwm.desktop
+echo "[Desktop Entry]" | sudo tee -a /usr/share/xsessions/dwm.desktop
+echo "Encoding=UTF-8" | sudo tee -a /usr/share/xsessions/dwm.desktop
+echo "Name=dwm" | sudo tee -a /usr/share/xsessions/dwm.desktop
+echo "Comment=Dynamic Window Manager" | sudo tee -a /usr/share/xsessions/dwm.desktop
+echo "Exec=~/.dwm/autostart" | sudo tee -a /usr/share/xsessions/dwm.desktop
