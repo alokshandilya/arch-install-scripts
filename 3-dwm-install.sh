@@ -20,6 +20,15 @@ cd
 
 paru -S bat dash libxft-bgra-git nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
 
+paru -S lxappearance numlockx copyq conky feh bpytop ranger rofi nitrogen capitaine-cursors kvantum-qt5 kvantum-theme-materia qt5ct
+paru -S dunst arc-gtk-theme arc-icon-theme thunar lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter
+
+sudo systemctl enable lightdm
+
+# polkit
+paru -S gnome-keyring polkit-gnome 
+
+
 # Lightdm Entry
 cd
 sudo mkdir /usr/share/xsessions
