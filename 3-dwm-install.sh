@@ -8,11 +8,12 @@ then
     printf "\n"
     printf "########################################\n"
     printf "##### Installing paru (AUR Helper) #####\n"
-    printf "########################################\n"
+    printf "########################################\n\n"
     git clone https://aur.archlinux.org/paru-bin.git
     cd paru-bin
     makepkg -si
 else
+    printf "\n"
     printf "#######################################\n"
     printf "###### paru is already installed ######\n"
     printf "#######################################\n"
@@ -21,7 +22,7 @@ fi
 printf "\n"
 printf "#########################################\n"
 printf "##### Installing suckless utilities #####\n"
-printf "#########################################\n"
+printf "#########################################\n\n"
 git clone https://github.com/alokshandilya/suckless.git
 cd suckless/dmenu-5.0
 sudo make clean install
@@ -37,7 +38,7 @@ cd
 printf "\n"
 printf "#########################################\n"
 printf "##### Installing fonts and packages #####\n"
-printf "#########################################\n"
+printf "#########################################\n\n"
 paru -S libxft-bgra nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
 paru -S wget bat dash powerpill
 
@@ -53,7 +54,7 @@ paru -S gnome-keyring lxsession
 printf "\n"
 printf "##########################################\n"
 printf "##### Creating desktop entry for dwm #####\n"
-printf "##########################################\n"
+printf "##########################################\n\n"
 cd
 DIR="/usr/share/xsessions"
 if [ -d "$DIR" ]; then
@@ -81,4 +82,4 @@ fi
 printf "\n"
 printf "##########################################\n"
 printf "###### dwm is successfully installed######\n"
-printf "##########################################\n"
+printf "##########################################\n\n"
