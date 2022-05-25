@@ -40,9 +40,9 @@ printf "#########################################\n"
 printf "##### Installing fonts and packages #####\n"
 printf "#########################################\n\n"
 paru -S libxft-bgra nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
-paru -S wget bat dash powerpill
+paru -S wget bat dash
 
-paru -S lxappearance numlockx copyq conky feh bpytop ranger rofi nitrogen capitaine-cursors kvantum-qt5 kvantum-theme-materia qt5ct dunst arc-gtk-theme arc-icon-theme thunar lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter
+paru -S lxappearance numlockx copyq conky feh bpytop ranger rofi nitrogen kvantum-qt5 kvantum-theme-materia qt5ct dunst thunar lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter
 
 sudo systemctl enable lightdm
 
