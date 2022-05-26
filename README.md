@@ -1,2 +1,2 @@
-# arch-install-scripts
+# Arch-install-scripts
 My personal scripts for installing arch linux.

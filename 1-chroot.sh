@@ -1,5 +1,7 @@
 #!/bin/bash
-mkfs.vfat /dev/nvme0n1p1 -n "EFI"
+
+# Formatting the partitions
+mkfs.fat -F32 /dev/nvme0n1p1 -n "EFI"
 mkfs.btrfs -f /dev/nvme0n1p2 -L "BTRFS"
 
 # Mount the partitions
@@ -20,7 +22,7 @@ mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@srv /dev/nvme0n1p2 /mnt/srv
 mount /dev/nvme0n1p1 /mnt/boot/efi
 
-# Install Arch Linux
+# pacstrap and chroot
 reflector -c India --sort rate --verbose --save /etc/pacman.d/mirrorlist
 pacstrap -i /mnt base btrfs-progs linux linux-headers linux-firmware vim nano intel-ucode git
 genfstab -U /mnt >> /mnt/etc/fstab
