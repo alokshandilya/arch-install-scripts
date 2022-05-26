@@ -24,4 +24,4 @@ mount /dev/nvme0n1p1 /mnt/boot/efi
 reflector -c India --sort rate --verbose --save /etc/pacman.d/mirrorlist
 pacstrap -i /mnt base btrfs-progs linux linux-headers linux-firmware vim nano intel-ucode git
 genfstab -U /mnt >> /mnt/etc/fstab
-#arch-chroot /mnt
+arch-chroot /mnt
