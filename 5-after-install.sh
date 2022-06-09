@@ -21,6 +21,7 @@ fi
 
 # Install AUR's
 paru -S timeshift timeshift-autosnap spotify spotify-adblock-git jdk visual-studio-code-bin ananicy-cpp auto-cpufreq android-sdk-platform-tools anydesk-bin brave-bin caffeine-ng github-desktop-bin google-chrome google-earth-pro google-java-format mailspring masterpdfeditor-free optimus-manager optimus-manager-qt picom-git xdman zoom zramd
+paru -S qogir-icon-theme-git qogir-gtk-theme-git kvantum-theme-qogir-git
 
 sudo systemctl enable --now cronie.service
 sudo systemctl enable --now zramd.service
