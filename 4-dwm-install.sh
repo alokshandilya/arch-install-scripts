@@ -5,18 +5,18 @@
 ########################################
 if ! command -v paru &> /dev/null
 then
-    printf "\n"
-    printf "########################################\n"
-    printf "##### Installing paru (AUR Helper) #####\n"
-    printf "########################################\n\n"
-    git clone https://aur.archlinux.org/paru-bin.git
-    cd paru-bin
-    makepkg -si
+  printf "\n"
+  printf "########################################\n"
+  printf "##### Installing paru (AUR Helper) #####\n"
+  printf "########################################\n\n"
+  git clone https://aur.archlinux.org/paru-bin.git
+  cd paru-bin
+  makepkg -si
 else
-    printf "\n"
-    printf "#######################################\n"
-    printf "###### paru is already installed ######\n"
-    printf "#######################################\n"
+  printf "\n"
+  printf "#######################################\n"
+  printf "###### paru is already installed ######\n"
+  printf "#######################################\n"
 fi
 
 printf "\n"
@@ -24,13 +24,9 @@ printf "#########################################\n"
 printf "##### Installing suckless utilities #####\n"
 printf "#########################################\n\n"
 git clone https://github.com/alokshandilya/suckless.git
-cd suckless/dmenu-5.0
-sudo make clean install
-cd ../dwm
+cd suckless/dwm
 sudo make clean install
 cd ../dwmblocks
-sudo make clean install
-cd ../st
 sudo make clean install
 cp -r ../.dwm ~/
 cd
@@ -39,10 +35,10 @@ printf "\n"
 printf "#########################################\n"
 printf "##### Installing fonts and packages #####\n"
 printf "#########################################\n\n"
-paru -S libxft-bgra nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
+paru -S nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
 paru -S wget bat dash
 
-paru -S lxappearance-gtk3 numlockx copyq conky feh bpytop ranger rofi nitrogen kvantum-qt5 kvantum-theme-materia qt5ct dunst thunar lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter
+paru -S lxappearance-gtk3 numlockx copyq conky feh bpytop ranger rofi nitrogen kvantum-qt5 kvantum-theme-materia qt5ct dunst thunar lightdm lightdm-gtk-greeter
 
 sudo systemctl enable lightdm
 
