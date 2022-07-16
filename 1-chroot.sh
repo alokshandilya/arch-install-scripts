@@ -2,16 +2,14 @@
 
 # Formatting the partitions
 mkfs.fat -F32 /dev/nvme0n1p1 -n "EFI"
-mkswap /dev/nvme0n1p2
-mkfs.ext4 /dev/nvme0n1p3 -L "Arch"
-mkfs.ext4 /dev/nvme0n1p4 -L "Home"
+mkfs.ext4 /dev/nvme0n1p2 -L "Arch"
+mkfs.ext4 /dev/nvme0n1p3 -L "Home"
 
 # Mount the partitions
-swapon /dev/nvme0n1p2
-mount /dev/nvme0n1p3 /mnt
+mount /dev/nvme0n1p2 /mnt
 mkdir -p /mnt/{home,boot/efi}
 mount /dev/nvme0n1p1 /mnt/boot/efi
-mount /dev/nvme0n1p4 /mnt/home
+mount /dev/nvme0n1p3 /mnt/home
 
 # pacstrap and chroot
 pacstrap -i /mnt base linux linux-headers linux-firmware vim nano intel-ucode git
