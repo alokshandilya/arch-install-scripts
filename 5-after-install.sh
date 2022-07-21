@@ -20,7 +20,7 @@ else
 fi
 
 # Install AUR's
-paru -S timeshift timeshift-autosnap spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro mailspring masterpdfeditor-free picom-git xdman zoom zramd
+paru -S timeshift timeshift-autosnap spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro mailspring masterpdfeditor-free picom-git xdman zoom zramd envycontrol
 
 sudo systemctl enable --now cronie.service
 sudo systemctl enable --now zramd.service
