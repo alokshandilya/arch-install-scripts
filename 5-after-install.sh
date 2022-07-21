@@ -5,56 +5,54 @@
 ########################################
 if ! command -v paru &> /dev/null
 then
-    printf "\n"
-    printf "########################################\n"
-    printf "##### Installing paru (AUR Helper) #####\n"
-    printf "########################################\n\n"
-    git clone https://aur.archlinux.org/paru-bin.git
-    cd paru-bin
-    makepkg -si
+  printf "\n"
+  printf "########################################\n"
+  printf "##### Installing paru (AUR Helper) #####\n"
+  printf "########################################\n\n"
+  git clone https://aur.archlinux.org/paru-bin.git
+  cd paru-bin
+  makepkg -si
 else
-    printf "\n"
-    printf "#######################################\n"
-    printf "###### paru is already installed ######\n"
-    printf "#######################################\n"
+  printf "\n"
+  printf "#######################################\n"
+  printf "###### paru is already installed ######\n"
+  printf "#######################################\n"
 fi
 
 # Install AUR's
-paru -S timeshift timeshift-autosnap spotify spotify-adblock-git jdk visual-studio-code-bin ananicy-cpp auto-cpufreq android-sdk-platform-tools anydesk-bin brave-bin caffeine-ng github-desktop-bin google-chrome google-earth-pro google-java-format mailspring masterpdfeditor-free optimus-manager optimus-manager-qt picom-git xdman zoom zramd
-paru -S qogir-icon-theme-git qogir-gtk-theme-git kvantum-theme-qogir-git
+paru -S timeshift timeshift-autosnap spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro mailspring masterpdfeditor-free picom-git xdman zoom zramd
 
 sudo systemctl enable --now cronie.service
 sudo systemctl enable --now zramd.service
 sudo systemctl enable --now auto-cpufreq.service
 sudo systemctl enable --now ananicy-cpp.service
 
-# Install Virtualbox and Emacs
-paru -S virtualbox virtualbox-guest-iso virtualbox-ext-oracle emacs
+# Theme [orchis], Icon [Qogir]
+printf "#########################################\n"
+printf "###### Installing Orchis and Qogir ######\n"
+printf "#########################################\n"
+git clone https://github.com/vinceliuice/Orchis-theme.git
+cd Orchis-theme
+sudo ./install.sh -t green
+cd ..
+git clone https://github.com/vinceliuice/Qogir-icon-theme.git
+cd Qogir-icon-theme
+sudo ./install.sh
+cd
+
+# Install Virtualbox
+paru -S virtualbox virtualbox-guest-iso virtualbox-ext-oracle
 sudo modprobe vboxdrv
 
 # Install some packages and stuff
-pip install black
 chsh -s /usr/bin/zsh
-paru -S stylua intellij-idea-community-edition pycharm-community-edition gparted mpv yt-dlp libreoffice-fresh tumbler thunar-volman thunar-archive-plugin exa fzf zoxide ripgrep neovim python-neovim xclip libgnome-keyring python-keyring
-paru -S telegram-desktop redshift flameshot
+paru -S stylua gparted mpv yt-dlp libreoffice-fresh tumbler thunar-volman thunar-archive-plugin exa fzf zoxide ripgrep neovim python-neovim xclip libgnome-keyring python-keyring
+paru -S telegram-desktop redshift flameshot unzip
+# unzip and wget required for fnm
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 usermod -aG adbusers vboxusers aloks
 
-printf "\n\n#################################\n"
-printf "##### Installing Doom Emacs #####\n"
-printf "#################################\n\n"
-
-mkdir doom-emacs-install-script
-cd doom-emacs-install-script
-git clone https://github.com/alokshandilya/dotfiles.git
-cp -r dotfiles/.config/doom ~/.config/
-cd
-git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
-~/.emacs.d/bin/doom install
-cd
-killall emacs
-/usr/bin/emacs --daemon
-
-printf "\n\n#######################################\n"
-printf "##### Doom Emacs script completed #####\n"
-printf "#######################################\n\n"
+printf "\n\n"
+printf "############################\n"
+printf "##### script completed #####\n"
+printf "############################\n\n"
