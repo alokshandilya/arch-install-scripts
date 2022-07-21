@@ -25,8 +25,9 @@ printf "##### Installing suckless utilities #####\n"
 printf "#########################################\n\n"
 # gd is required for my build of st
 paru -S gd
-git clone https://github.com/alokshandilya/suckless.git
-cd suckless/dwm
+mkdir ~/Documents
+git clone https://github.com/alokshandilya/suckless.git ~/Documents/suckless
+cd ~/Documents/suckless/dwm
 sudo make clean install
 cd ../dwmblocks
 sudo make clean install
