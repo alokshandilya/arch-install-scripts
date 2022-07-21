@@ -44,7 +44,7 @@ paru -S nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
 paru -S wget bat dash
 
 paru -S lxappearance-gtk3 numlockx copyq conky feh bpytop ranger rofi nitrogen kvantum-qt5 kvantum-theme-materia qt5ct dunst thunar lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter
-
+paru -S brightnessctl xsel jdk-openjdk envycontrol nvtop cmake libva-utils clang llvm ueberzug
 sudo systemctl enable lightdm
 
 # polkit
