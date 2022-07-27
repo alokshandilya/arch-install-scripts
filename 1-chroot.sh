@@ -23,6 +23,6 @@ mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,
 mount /dev/nvme0n1p1 /mnt/boot/efi
 
 # pacstrap and chroot
-pacstrap -i /mnt base btrfs-progs linux linux-headers linux-firmware vim nano intel-ucode git
+pacstrap -i /mnt base btrfs-progs linux-zen linux-zen-headers linux-firmware vim intel-ucode git
 genfstab -U /mnt >> /mnt/etc/fstab
 #arch-chroot /mnt
