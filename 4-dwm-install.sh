@@ -36,23 +36,30 @@ sudo make clean install
 cp -r ../.dwm ~/
 cd
 
+#########################################
+##### Installing fonts and packages #####
+#########################################
 printf "\n"
 printf "#########################################\n"
 printf "##### Installing fonts and packages #####\n"
 printf "#########################################\n\n"
-#paru -S libxft-bgra 
-paru -S nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
-paru -S wget bat dash
+#paru -S --needed libxft-bgra 
+paru -S --needed nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
+paru -S --needed wget bat dash
 
-paru -S lxappearance-gtk3 numlockx copyq conky feh bpytop ranger rofi nitrogen kvantum-qt5 kvantum-theme-materia qt5ct dunst thunar lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm-gtk-greeter
-paru -S brightnessctl xsel jdk-openjdk nvtop cmake libva-utils clang llvm ueberzug
+paru -S --needed lxappearance-gtk3 numlockx copyq conky feh bpytop ranger rofi nitrogen kvantum-qt5 kvantum-theme-materia qt5ct dunst thunar
+paru -S --needed brightnessctl xsel jdk-openjdk nvtop cmake libva-utils clang llvm ueberzug
+
+# lightdm
+paru -S --needed lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm
 
 # polkit
-paru -S gnome-keyring lxsession
+paru -S --needed polkit-gnome gnome-keyring lxsession
 
-
-# Lightdm Entry
+##########################################
+##### Creating desktop entry for dwm #####
+##########################################
 printf "\n"
 printf "##########################################\n"
 printf "##### Creating desktop entry for dwm #####\n"
