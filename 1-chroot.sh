@@ -12,17 +12,19 @@ btrfs su cr /mnt/@srv
 btrfs su cr /mnt/@cache
 btrfs su cr /mnt/@log
 btrfs su cr /mnt/@tmp
+btrfs su cr /mnt/@snapshots
 umount /mnt
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@ /dev/nvme0n1p2 /mnt
-mkdir -p /mnt/{home,boot/efi,var/cache,var/log,var/tmp,srv}
+mkdir -p /mnt/{home,boot/efi,var/cache,var/log,var/tmp,srv,.snapshots}
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@home /dev/nvme0n1p2 /mnt/home
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@cache /dev/nvme0n1p2 /mnt/var/cache
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@log /dev/nvme0n1p2 /mnt/var/log
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@tmp /dev/nvme0n1p2 /mnt/var/tmp
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@srv /dev/nvme0n1p2 /mnt/srv
+mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@snapshots /dev/nvme0n1p2 /mnt/.snapshots
 mount /dev/nvme0n1p1 /mnt/boot/efi
 
 # pacstrap and chroot
-pacstrap -i /mnt base btrfs-progs linux-zen linux-zen-headers linux-firmware vim intel-ucode git
+pacstrap -i /mnt base btrfs-progs linux-zen linux-zen-headers linux-firmware vim intel-ucode git snapper
 genfstab -U /mnt >> /mnt/etc/fstab
 #arch-chroot /mnt
