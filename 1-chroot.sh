@@ -11,12 +11,12 @@
 #####################################
 mkfs.fat -F32 /dev/nvme0n1p1 -n "EFI"
 mkfs.btrfs -f /dev/nvme0n1p2 -L "BTRFS"
-
 ################################
 ##### Mount the partitions #####
 ################################
 mount /dev/nvme0n1p2 /mnt
 btrfs su cr /mnt/@
+btrfs su cr /mnt/@root
 btrfs su cr /mnt/@home
 btrfs su cr /mnt/@srv
 btrfs su cr /mnt/@cache
@@ -25,7 +25,8 @@ btrfs su cr /mnt/@tmp
 btrfs su cr /mnt/@snapshots
 umount /mnt
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@ /dev/nvme0n1p2 /mnt
-mkdir -p /mnt/{home,boot/efi,var/cache,var/log,var/tmp,srv,.snapshots}
+mkdir -p /mnt/{home,root,boot/efi,var/cache,var/log,var/tmp,srv,.snapshots}
+mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@root /dev/nvme0n1p2 /mnt/root
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@home /dev/nvme0n1p2 /mnt/home
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@cache /dev/nvme0n1p2 /mnt/var/cache
 mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@log /dev/nvme0n1p2 /mnt/var/log
@@ -49,7 +50,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ##### Formatting the partitions #####
 #####################################
 #mkfs.fat -F32 /dev/nvme0n1p1 -n "EFI"
-#cryptsetup --cipher aes-xts-plain64 --has sha512 --use-random --verify-passphrase luksFormat /dev/nvme0n1p2
+#cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passphrase luksFormat /dev/nvme0n1p2
 #cryptsetup luksOpen /dev/nvme0n1p2 root
 #mkfs.btrfs -f /dev/mapper/root
 ################################
@@ -57,6 +58,7 @@ genfstab -U /mnt >> /mnt/etc/fstab
 ################################
 #mount /dev/mapper/root /mnt
 #btrfs su cr /mnt/@
+#btrfs su cr /mnt/@root
 #btrfs su cr /mnt/@home
 #btrfs su cr /mnt/@srv
 #btrfs su cr /mnt/@cache
@@ -65,7 +67,8 @@ genfstab -U /mnt >> /mnt/etc/fstab
 #btrfs su cr /mnt/@snapshots
 #umount /mnt
 #mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@ /dev/mapper/root /mnt
-#mkdir -p /mnt/{home,boot/efi,var/cache,var/log,var/tmp,srv,.snapshots}
+#mkdir -p /mnt/{home,root,boot/efi,var/cache,var/log,var/tmp,srv,.snapshots}
+#mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@root /dev/mapper/root /mnt/root
 #mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@home /dev/mapper/root /mnt/home
 #mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@cache /dev/mapper/root /mnt/var/cache
 #mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@log /dev/mapper/root /mnt/var/log
