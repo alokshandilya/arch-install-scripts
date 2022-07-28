@@ -50,7 +50,7 @@ paru -S stylua gparted mpv yt-dlp libreoffice-fresh tumbler thunar-volman thunar
 paru -S telegram-desktop redshift flameshot unzip
 # unzip and wget required for fnm
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
-usermod -aG adbusers vboxusers aloks
+sudo usermod -aG adbusers vboxusers aloks
 
 printf "\n\n"
 printf "############################\n"
