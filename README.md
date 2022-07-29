@@ -25,26 +25,53 @@ rm -rf /.snapshots
 snapper -c root create-config /
 ```
 
+- remove extra snapshot subvol
+
+```sh
+btrfs subvol del /.snapshots
+```
+
+- re-create `/.snapshots`
+
+```sh
+mkdir /.snapshots
+```
+
+- mount `/.snapshots` it should be in `/etc/fstab` already
+
+```sh
+mount -a
+```
+
+- change permission
+
+```sh
+chmod 750 /.snapshots
+```
+
+```sh
+chmod a+rx /.snapshots
+```
+
+```sh
+chown :aloks /.snapshots
+```
+
+> Replace `aloks` with username
+
 - modify snapper config
 
 ```sh
 vim /etc/snapper/configs/root
 ```
 
-- ALLOW\*USERS="xxx" \*\*\*[replace xxx with username]\_\*\*
-
+- ALLOW_USERS="xxx" _[replace xxx with username]_
   - TIMELINE_MIN_AGE="1800"
   - TIMELINE_LIMIT_HOURLY="5"
   - TIMELINE_LIMIT_DAILY="7"
   - TIMELINE_LIMIT_WEEKLY="0"
   - TIMELINE_LIMIT_MONTHLY="0"
   - TIMELINE_LIMIT_YEARLY="0"
-
-- change permissions of `/.snapshots` directory
-
-```sh
-chmod a+rx /.snapshots
-```
 
 - enable and start services
   - `systemctl enable snapper-timeline.timer`
@@ -57,10 +84,32 @@ chmod a+rx /.snapshots
 - `snapper -c root list`
   - `0` is current system
 
-7. create first snapshot
+- create first snapshot
+
+- install 
 
 ```sh
-snapper -c root create -c timeline --description firstSnapshot
+paru -S snap-pac-grub snapper-gui snap-pac rsync
+```
+- create pacman hook `/etc/pacman.d/hooks/95-bootbackup.hook`
+
+```sh
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Operation = Remove
+Type = Path
+Target = usr/lib/modules/*/vmlinuz
+
+[Action]
+Depends = rsync
+Description = Backing up /boot...
+When = PostTransaction
+Exec = /usr/bin/rsync -a --delete /boot /.bootbackup
+``````
+
+```sh
+snapper -c root create -c timeline -d "first snapshot"
 ```
 
 - `snapper -c root list`
