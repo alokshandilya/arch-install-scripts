@@ -16,7 +16,7 @@ umount /.snapshots
 ```
 
 ```sh
-rm -rf /.snapshots
+rm -r /.snapshots
 ```
 
 - create snapper config
@@ -37,7 +37,7 @@ btrfs subvol del /.snapshots
 mkdir /.snapshots
 ```
 
-- mount `/.snapshots` it should be in `/etc/fstab` already
+- mount `/.snapshots`, it should be in `/etc/fstab` already
 
 ```sh
 mount -a
@@ -120,10 +120,12 @@ snapper -c root create -c timeline -d "first snapshot"
 
 - `mount /dev/nvme0n1p2 /mnt`
   - here nvme0n1p2 is the partition with btrfs subvolumes
-- `cd /mnt/@snapshots`
+- find the number of the snapshot you want to recover
+  - `grep -r '<date>' /mnt/@snapshots/*/info.xml`
+- or simply, `cd /mnt/@snapshots`
   - choose snapshot number _(remember)_
   - check `info.xml`
-  - check <description>
+  - check <description>, <date>
 - `rm -rf /mnt/@`
   - wait
 - `btrfs subvol snapshot /mnt/@snapshots/xxx/snapshot /mnt/@`
