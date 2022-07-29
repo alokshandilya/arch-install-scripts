@@ -52,6 +52,9 @@ paru -S telegram-desktop redshift flameshot unzip
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 sudo usermod -aG adbusers vboxusers aloks
 
+# Setting thunar as default file manager
+xdg-mime default thunar.desktop inode/directory
+
 printf "\n\n"
 printf "############################\n"
 printf "##### script completed #####\n"
