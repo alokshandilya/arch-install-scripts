@@ -20,11 +20,10 @@ else
 fi
 
 # Install AUR's
-paru -S timeshift timeshift-autosnap spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro mailspring masterpdfeditor-free picom-git xdman zoom zramd envycontrol
+paru -S --needed spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro mailspring masterpdfeditor-free xdman zoom zramd envycontrol
 
 sudo systemctl enable --now cronie.service
 sudo systemctl enable --now zramd.service
-sudo systemctl enable --now auto-cpufreq.service
 sudo systemctl enable --now ananicy-cpp.service
 
 # Theme [orchis], Icon [Qogir]
@@ -41,13 +40,14 @@ sudo ./install.sh
 cd
 
 # Install Virtualbox
-paru -S virtualbox virtualbox-guest-iso virtualbox-ext-oracle
+paru -S --needed virtualbox virtualbox-guest-iso virtualbox-ext-oracle
 sudo modprobe vboxdrv
 
 # Install some packages and stuff
-chsh -s /usr/bin/zsh
-paru -S stylua gparted mpv yt-dlp libreoffice-fresh tumbler thunar-volman thunar-archive-plugin exa fzf zoxide ripgrep neovim python-neovim xclip libgnome-keyring python-keyring
-paru -S telegram-desktop redshift flameshot unzip
+paru -S --needed fish
+chsh -s /usr/bin/fish
+paru -S --needed stylua gparted mpv yt-dlp libreoffice-fresh tumbler thunar-volman thunar-archive-plugin exa fzf zoxide ripgrep neovim python-neovim xclip libgnome-keyring python-keyring
+paru -S --needed telegram-desktop redshift flameshot unzip
 # unzip and wget required for fnm
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 sudo usermod -aG adbusers vboxusers aloks
