@@ -43,7 +43,7 @@ printf "\n"
 printf "#########################################\n"
 printf "##### Installing fonts and packages #####\n"
 printf "#########################################\n\n"
-#paru -S --needed libxft-bgra 
+paru -S --needed libxft-bgra
 paru -S --needed nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
 paru -S --needed wget bat dash
 
@@ -55,7 +55,7 @@ paru -S --needed lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm
 
 # polkit
-paru -S --needed polkit-gnome gnome-keyring lxsession
+paru -S --needed polkit-gnome gnome-keyring
 
 ##########################################
 ##### Creating desktop entry for dwm #####
