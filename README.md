@@ -58,7 +58,7 @@ chmod a+rx /.snapshots
 chown :aloks /.snapshots
 ```
 
-> Replace `aloks` with username
+> replace `aloks` with username
 
 - modify snapper config
 
@@ -68,7 +68,7 @@ vim /etc/snapper/configs/root
 
 - `ALLOW_USERS="aloks"`
 
-  > replace xxx with `username`
+  > replace `aloks` with username
 
   - `TIMELINE_MIN_AGE="1800"`
   - `TIMELINE_LIMIT_HOURLY="5"`
