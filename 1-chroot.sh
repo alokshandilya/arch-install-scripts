@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#---------------------------#
-#  Subvolume   Mountpoint   #
-#---------------------------#
-#  @           /            #
-#  @home       /home        #
-#  @snapshots  /.snapshots  #
-#  @var_log    /var/log     #
-#---------------------------#
+#------------#-------------#
+# Subvolume  # Mountpoint  #
+#------------#-------------#
+# @          # /           #
+# @home      # /home       #
+# @snapshots # /.snapshots #
+# @var_log   # /var/log    #
+#------------#-------------#
 
 mkfs.fat -F32 /dev/nvme0n1p1 -n "EFI"
 mkfs.btrfs -f /dev/nvme0n1p2 -L "BTRFS"
