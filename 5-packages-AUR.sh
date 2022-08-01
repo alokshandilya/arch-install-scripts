@@ -23,11 +23,16 @@ fi
 ###################### AURs ######################
 ##################################################
 ## COPY AND RUN ON ANOTHER TERM INSTANCE (TO SAVE TIME) ##
-##
-#paru -S --needed spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro mailspring masterpdfeditor-free xdman zoom zramd envycontrol
-#sudo systemctl enable --now cronie.service
+#o
+#paru -S --needed spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp
+#paru -S --needed android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro
+#paru -S --needed mailspring masterpdfeditor-free xdman zoom zramd envycontrol dropbox
+#paru -S --needed nohang-git auto-cpufreq
 #sudo systemctl enable --now zramd.service
 #sudo systemctl enable --now ananicy-cpp.service
+#sudo systemctl enable --now nohang-desktop.service
+#sudo systemctl enable --now systemd-oomd.service
+#sudo systemctl enable --now auto-cpufreq.service
 
 #######################################
 ##### Theme[Orchis], Icons[Qogir] #####
@@ -47,9 +52,12 @@ cd
 #####################################################
 ########### VirtualBox and MORE! Packages ###########
 #####################################################
-paru -S --needed virtualbox virtualbox-guest-iso virtualbox-ext-oracle fish
+paru -S --needed virtualbox virtualbox-guest-iso zathura zathura-pdf-poppler gcolor2
+paru -S --needed virtualbox-ext-oracle fish texlive-most starship ttf-twemoji stow pacman-contrib
+paru -S --needed pkgfile dmidecode thunderbird rhythmbox tree
+sudo pkgfile --update
 chsh -s /usr/bin/fish
-paru -S --needed stylua gparted mpv yt-dlp libreoffice-fresh tumbler thunar-volman thunar-archive-plugin exa fzf zoxide ripgrep neovim python-neovim xclip libgnome-keyring python-keyring
+paru -S --needed stylua gparted mpv yt-dlp libreoffice-fresh tumbler pcmanfm ffmpegthumbnailer xarchiver exa fzf zoxide ripgrep neovim python-neovim xclip libgnome-keyring python-keyring
 paru -S --needed wget telegram-desktop redshift flameshot unzip
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 sudo modprobe vboxdrv
