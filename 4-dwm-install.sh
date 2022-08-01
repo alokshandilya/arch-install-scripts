@@ -23,7 +23,6 @@ printf "\n"
 printf "#########################################\n"
 printf "##### Installing suckless utilities #####\n"
 printf "#########################################\n\n"
-# gd is required for my build of st
 paru -S gd
 mkdir ~/Documents
 git clone https://github.com/alokshandilya/suckless.git ~/Documents/suckless
@@ -44,11 +43,13 @@ printf "#########################################\n"
 printf "##### Installing fonts and packages #####\n"
 printf "#########################################\n\n"
 paru -S --needed libxft-bgra
-paru -S --needed nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code
+paru -S --needed nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code ttf-jetbrains-mono
 paru -S --needed wget bat dash
 
-paru -S --needed lxappearance-gtk3 numlockx copyq conky feh bpytop ranger rofi nitrogen kvantum-qt5 kvantum-theme-materia qt5ct dunst thunar
-paru -S --needed brightnessctl xsel jdk-openjdk nvtop cmake libva-utils clang llvm ueberzug
+paru -S --needed lxappearance-gtk3 numlockx copyq conky feh bpytop ranger rofi
+paru -S --needed kvantum-qt5 kvantum-theme-materia qt5ct dunst pcmanfm ffmpegthumbnailer
+paru -S --needed xarchiver redshift flameshot
+paru -S --needed brightnessctl xsel
 
 # lightdm
 paru -S --needed lightdm lightdm-gtk-greeter
