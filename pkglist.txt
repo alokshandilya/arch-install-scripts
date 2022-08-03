@@ -18,6 +18,8 @@ python-pip
 python-pillow
 github-cli
 hub
+fd
+ttf-fira-sans
 ttc-iosevka
 ttf-jetbrains-mono
 ttf-cascadia-code

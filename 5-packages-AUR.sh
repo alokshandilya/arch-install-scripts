@@ -42,7 +42,7 @@ cd
 #paru -S --needed spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp
 #paru -S --needed android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro
 #paru -S --needed mailspring masterpdfeditor-free xdman zoom zramd envycontrol dropbox
-#paru -S --needed nohang-git auto-cpufreq
+#paru -S --needed nohang-git auto-cpufreq appimagelauncher
 #sudo systemctl enable --now zramd.service
 #sudo systemctl enable --now ananicy-cpp.service
 #sudo systemctl enable --now nohang-desktop.service
