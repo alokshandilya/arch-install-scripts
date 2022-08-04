@@ -46,6 +46,7 @@ fzf
 zoxide
 ripgrep
 neovim
+neovide
 python-neovim
 xclip
 libgnome-keyring
