@@ -9,6 +9,7 @@ rhythmbox
 tree
 dmidecode
 gcolor2
+transmission-gtk
 zathura
 zathura-pdf-poppler
 texlive-most
