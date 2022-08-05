@@ -80,12 +80,9 @@ vim /etc/snapper/configs/root
   - `TIMELINE_LIMIT_YEARLY="0"`
 
 - enable and start services
-  - `systemctl enable snapper-timeline.timer`
-  - `systemctl start snapper-timeline.timer`
-  - `systemctl enable snapper-cleanup.timer`
-  - `systemctl start snapper-cleanup.timer`
-  - `systemctl enable grub-btrfs.path`
-  - `systemctl start grub-btrfs.path`
+  - `systemctl enable --now snapper-timeline.timer`
+  - `systemctl enable --now snapper-cleanup.timer`
+  - `systemctl enable --now grub-btrfs.path`
     - snapshot will directly be added to grub bootloader list
 - `snapper -c root list`
 
@@ -94,7 +91,7 @@ vim /etc/snapper/configs/root
 - install
 
 ```sh
-paru -S snap-pac-grub snapper-gui snap-pac rsync
+paru -S --needed snap-pac-grub snapper-gui snap-pac rsync
 ```
 
 - create pacman hook `/etc/pacman.d/hooks/95-bootbackup.hook`
