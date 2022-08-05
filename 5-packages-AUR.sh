@@ -42,7 +42,7 @@ cd
 #paru -S --needed spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp
 #paru -S --needed android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro
 #paru -S --needed mailspring masterpdfeditor-free xdman zoom zramd envycontrol dropbox
-#paru -S --needed nohang-git auto-cpufreq appimagelauncher
+#paru -S --needed nohang-git auto-cpufreq appimagelauncher xbanish betterlockscreen
 #sudo systemctl enable --now zramd.service
 #sudo systemctl enable --now ananicy-cpp.service
 #sudo systemctl enable --now nohang-desktop.service
@@ -58,7 +58,7 @@ sudo pkgfile --update
 chsh -s /usr/bin/fish
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 sudo modprobe vboxdrv
-sudo usermod -aG adbusers vboxusers aloks
+sudo usermod -aG adbusers,vboxusers aloks
 # Setting pcmanfm as default file manager
 xdg-mime default pcmanfm.desktop inode/directory
 
