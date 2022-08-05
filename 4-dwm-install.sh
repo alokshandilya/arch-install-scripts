@@ -46,7 +46,7 @@ paru -S --needed libxft-bgra
 paru -S --needed nerd-fonts-jetbrains-mono ttf-fira-code nerd-fonts-fira-code ttf-jetbrains-mono
 paru -S --needed wget bat dash
 
-paru -S --needed lxappearance-gtk3 numlockx copyq conky feh bpytop ranger rofi
+paru -S --needed lxappearance-gtk3 numlockx copyq conky feh bpytop ranger rofi picom
 paru -S --needed kvantum-qt5 kvantum-theme-materia qt5ct dunst pcmanfm ffmpegthumbnailer
 paru -S --needed xarchiver redshift flameshot
 paru -S --needed brightnessctl xsel
