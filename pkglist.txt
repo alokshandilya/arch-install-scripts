@@ -21,6 +21,7 @@ github-cli
 hub
 fd
 ttf-fira-sans
+ttf-fira-mono
 ttc-iosevka
 ttf-jetbrains-mono
 ttf-cascadia-code
