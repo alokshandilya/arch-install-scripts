@@ -60,12 +60,12 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # umount /mnt
 #
 # mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@ /dev/mapper/cryptroot /mnt
-# mkdir -p /mnt/{home,boot/efi,var/cache/pacman/pkg,var/log,.snapshots}
+# mkdir -p /mnt/{home,boot,var/cache/pacman/pkg,var/log,.snapshots}
 # mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@home /dev/mapper/cryptroot /mnt/home
 # mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@.snapshots /dev/mapper/cryptroot /mnt/.snapshots
 # mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@pkg /dev/mapper/cryptroot /mnt/var/cache/pacman/pkg
 # mount -o defaults,noatime,compress=zstd,discard=async,space_cache=v2,autodefrag,subvol=@log /dev/mapper/cryptroot /mnt/var/log
-# mount /dev/nvme0n1p1 /mnt/boot/efi
+# mount /dev/nvme0n1p1 /mnt/boot
 #
 # pacstrap -i /mnt base btrfs-progs linux-zen linux-zen-headers linux-firmware vim intel-ucode git snapper
 # genfstab -U /mnt >> /mnt/etc/fstab
