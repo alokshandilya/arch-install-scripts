@@ -70,6 +70,8 @@ mesa
 mesa-demos
 mesa-utils
 mesa-vdpau
+opencl-mesa
+opencl-nvidia
 lib32-brotli
 lib32-libice
 lib32-libxcrypt
