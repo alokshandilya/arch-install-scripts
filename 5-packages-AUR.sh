@@ -58,7 +58,7 @@ sudo pkgfile --update
 chsh -s /usr/bin/fish
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 sudo modprobe vboxdrv
-sudo usermod -aG adbusers,vboxusers aloks
+sudo usermod -aG adbusers,vboxusers,kvm aloks
 # Setting pcmanfm as default file manager
 xdg-mime default pcmanfm.desktop inode/directory
 
