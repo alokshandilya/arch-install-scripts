@@ -18,7 +18,6 @@ pacman-contrib
 python-pip
 python-pillow
 github-cli
-powerpill
 hub
 fd
 ttf-fira-sans
