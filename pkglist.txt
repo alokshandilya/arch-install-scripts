@@ -71,6 +71,7 @@ mesa-utils
 mesa-vdpau
 opencl-mesa
 opencl-nvidia
+ffnvcodec-headers
 lib32-brotli
 lib32-libice
 lib32-libxcrypt
