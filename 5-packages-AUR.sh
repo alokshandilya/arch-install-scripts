@@ -43,6 +43,7 @@ cd
 #paru -S --needed android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro
 #paru -S --needed mailspring masterpdfeditor-free xdman zoom zramd envycontrol dropbox
 #paru -S --needed nohang-git auto-cpufreq appimagelauncher xbanish betterlockscreen
+#paru -S --needed octopi downgrade rar dropbox-cli pandoc-bin nerd-fonts-cascadia-code
 #sudo systemctl enable --now zramd.service
 #sudo systemctl enable --now ananicy-cpp.service
 #sudo systemctl enable --now nohang-desktop.service
