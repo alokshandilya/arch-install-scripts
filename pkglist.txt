@@ -20,6 +20,7 @@ python-pillow
 github-cli
 hub
 fd
+font-manager
 ttf-fira-sans
 ttf-fira-mono
 ttc-iosevka
