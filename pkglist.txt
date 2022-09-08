@@ -21,6 +21,7 @@ github-cli
 hub
 fd
 sxiv
+jq
 font-manager
 ttf-fira-sans
 ttf-fira-mono
