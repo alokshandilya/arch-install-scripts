@@ -20,6 +20,7 @@ python-pillow
 github-cli
 hub
 fd
+perl-file-mimeinfo
 sxiv
 jq
 font-manager
