@@ -9,11 +9,14 @@ ueberzug
 rhythmbox
 tree
 dmidecode
-gcolor2
 transmission-gtk
 zathura
 zathura-pdf-poppler
-texlive-most
+texlive-basic
+texlive-fontsrecommended
+texlive-latex
+texlive-latexextra
+texlive-latexrecommended
 stow
 pacman-contrib
 python-pip
@@ -60,7 +63,6 @@ libgnome-keyring
 python-keyring
 wget
 telegram-desktop
-intellij-idea-community-edition
 intel-gmmlib
 intel-media-driver
 vulkan-headers
@@ -74,7 +76,7 @@ mesa
 mesa-demos
 mesa-utils
 mesa-vdpau
-opencl-mesa
+opencl-rusticl-mesa
 opencl-nvidia
 ffnvcodec-headers
 lib32-brotli
