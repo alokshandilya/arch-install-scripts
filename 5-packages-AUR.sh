@@ -54,7 +54,9 @@ cd
 ########### VirtualBox, fish, startship, fnm ###########
 ########################################################
 paru -S --needed virtualbox virtualbox-guest-iso pkgfile unzip wget
-paru -S --needed virtualbox-ext-oracle fish starship ttf-twemoji
+paru -S --needed virtualbox-ext-oracle fish starship ttf-twemoji ttf-twemoji-color
+sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
+sudo ln -sf /usr/share/fontconfig/conf.avail/46-ttf-twemoji-color.conf /etc/fonts/conf.d/46-ttf-twemoji-color.conf
 sudo pkgfile --update
 chsh -s /usr/bin/fish
 curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
