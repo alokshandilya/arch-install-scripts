@@ -37,7 +37,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 systemctl enable NetworkManager
 systemctl enable ufw.service
-systemctl enable bluetooth
+systemctl enable bluetooth.service
 systemctl enable cups.service
 systemctl enable sshd
 systemctl enable avahi-daemon
