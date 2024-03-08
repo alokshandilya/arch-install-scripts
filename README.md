@@ -82,7 +82,7 @@ vim /etc/snapper/configs/root
 - enable and start services
   - `systemctl enable --now snapper-timeline.timer`
   - `systemctl enable --now snapper-cleanup.timer`
-  - `systemctl enable --now grub-btrfs.path`
+  - `systemctl enable --now grub-btrfsd.service`
     - snapshot will directly be added to grub bootloader list
 - `snapper -c root list`
 
