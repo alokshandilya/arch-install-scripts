@@ -43,7 +43,7 @@ cd
 #paru -S --needed android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro
 #paru -S --needed mailspring masterpdfeditor-free xdman zoom zramd envycontrol dropbox
 #paru -S --needed nohang-git auto-cpufreq appimagelauncher xbanish betterlockscreen
-#paru -S --needed downgrade rar pandoc-bin ttf-cascadia-code-nerd
+#paru -S --needed downgrade pandoc-bin ttf-cascadia-code-nerd
 #sudo systemctl enable --now zramd.service
 #sudo systemctl enable --now ananicy-cpp.service
 #sudo systemctl enable --now nohang-desktop.service
@@ -53,7 +53,7 @@ cd
 ########################################################
 ########### VirtualBox, fish, startship, fnm ###########
 ########################################################
-paru -S --needed virtualbox virtualbox-guest-iso pkgfile unzip wget
+paru -S --needed virtualbox virtualbox-guest-iso pkgfile unzip wget unrar
 paru -S --needed virtualbox-ext-oracle fish starship ttf-twemoji ttf-twemoji-color
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 sudo ln -sf /usr/share/fontconfig/conf.avail/46-ttf-twemoji-color.conf /etc/fonts/conf.d/46-ttf-twemoji-color.conf
