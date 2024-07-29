@@ -53,7 +53,7 @@ cd
 ########################################################
 ########### VirtualBox, fish, startship, fnm ###########
 ########################################################
-paru -S --needed virtualbox virtualbox-guest-iso pkgfile unzip wget unrar
+paru -S --needed virtualbox virtualbox-guest-iso pkgfile unzip wget unrar bc sysstat tk
 paru -S --needed virtualbox-ext-oracle fish starship ttf-twemoji ttf-twemoji-color
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 sudo ln -sf /usr/share/fontconfig/conf.avail/46-ttf-twemoji-color.conf /etc/fonts/conf.d/46-ttf-twemoji-color.conf
