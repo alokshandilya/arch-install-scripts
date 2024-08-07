@@ -53,8 +53,13 @@ cd
 ########################################################
 ########### VirtualBox, fish, startship, fnm ###########
 ########################################################
-paru -S --needed virtualbox virtualbox-guest-iso pkgfile unzip wget unrar bc sysstat tk kvantum-qt5 qt5ct
-paru -S --needed virtualbox-ext-oracle fish starship ttf-twemoji
+paru -S --needed virtualbox virtualbox-guest-iso pkgfile unzip wget unrar bc sysstat tk kvantum-qt5 qt5ct emacs-wayland
+paru -S --needed tidy python-pipenv python-isort shellcheck stylelint python-pipx glow
+npm i -g js-beautify markdownlint
+pipx install grip black nose pytest nose pyflakes isort pipenv pyright
+
+
+paru -S --needed virtualbox-ext-oracle zsh starship ttf-twemoji docker docker-buildx
 sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 sudo pkgfile --update
 chsh -s /usr/bin/fish
