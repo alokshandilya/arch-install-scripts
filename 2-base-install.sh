@@ -17,7 +17,7 @@ pacman -S --needed wpa_supplicant mtools dosfstools reflector base-devel avahi x
 pacman -S --needed xdg-utils gvfs gvfs-smb gvfs-mtp nfs-utils inetutils dnsutils bluez bluez-utils blueman cups hplip
 pacman -S --needed alsa-utils pipewire pipewire-alsa pipewire-pulse pavucontrol bash-completion openssh rsync reflector
 pacman -S --needed acpi virt-manager qemu qemu-full edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset
-pacman -S --needed flatpak sof-firmware nss-mdns acpid os-prober-btrfs ntfs-3g terminus-font android-udev
+pacman -S --needed flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font android-udev
 pacman -S --needed ufw gufw
 
 ufw default deny

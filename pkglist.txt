@@ -1,3 +1,4 @@
+cmatrix
 jdk-openjdk
 zip
 nvtop
@@ -51,16 +52,10 @@ gparted
 stylua
 yt-dlp
 tumbler
-exa
-fzf
-zoxide
 ripgrep
-neovim
-neovide
 python-neovim
 libgnome-keyring
 python-keyring
-wget
 telegram-desktop
 intel-gmmlib
 intel-media-driver

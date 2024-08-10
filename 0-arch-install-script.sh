@@ -151,8 +151,7 @@ sudo pacman -S --needed thunar thunar-volman tumbler catfish thunar-archive-plug
 ################################################
 ########### lvim, doom emacs, vscode ###########
 ################################################
-#pyenv global 3.12.0
-#pip install black pyflakes isort pipenv nose pytest
+#pipx install black pyflakes isort pipenv nose pytest
 sudo pacman -S --needed lazygit git make cargo ripgrep emacs
 
 #LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
@@ -160,4 +159,4 @@ sudo pacman -S --needed lazygit git make cargo ripgrep emacs
 #git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
 #~/.config/emacs/bin/doom install
 
-### #npm i -g js-beautify markdownlint
+### #npm i -g js-beautify markdownlint yarn
