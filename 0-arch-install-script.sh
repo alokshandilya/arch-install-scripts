@@ -75,9 +75,11 @@
 ###############################
 ####### 5. Themes, Icons ######
 ###############################
-#git clone https://github.com/vinceliuice/Orchis-theme.git
-#cd Orchis-theme
-#sudo ./install.sh -t green
+#cd; mkdir icons-themes; cd icons-themes
+#git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git --depth=1
+#cd WhiteSur-gtk-theme
+#./install.sh
+#./tweaks.sh -f monterey
 #cd ..
 #git clone https://github.com/vinceliuice/Qogir-icon-theme.git
 #cd Qogir-icon-theme
