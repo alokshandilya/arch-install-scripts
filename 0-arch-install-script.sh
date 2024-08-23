@@ -13,25 +13,24 @@
 ####################
 ###### 1.Core ######
 ####################
-#sudo pacman -S --needed btrfs-progs linux-headers linux-firmware vim intel-ucode snapper archlinux-keyring 
+#sudo pacman -S --needed btrfs-progs linux-zen-headers linux-firmware vim intel-ucode snapper archlinux-keyring 
 #sudo pacman -S --needed wpa_supplicant mtools dosfstools base-devel avahi xdg-user-dirs xdg-user-dirs-gtk
 #sudo pacman -S --needed xdg-utils gvfs gvfs-smb gvfs-mtp nfs-utils inetutils dnsutils bluez bluez-utils blueman cups
 #sudo pacman -S --needed alsa-utils pipewire pipewire-alsa pipewire-pulse pavucontrol bash-completion openssh rsync reflector
 #sudo pacman -S --needed acpi virt-manager qemu qemu-full edk2-ovmf bridge-utils dnsmasq vde2 openbsd-netcat iptables-nft ipset
 #sudo pacman -S --needed flatpak sof-firmware nss-mdns acpid os-prober ntfs-3g terminus-font android-udev ufw gufw
-# sudo ufw default deny
-# sudo ufw allow from 192.168.0.0/24
-# sudo ufw allow Deluge
-# sudo ufw limit ssh
-# sudo ufw enable
-
+#sudo ufw default deny
+#sudo ufw allow from 192.168.0.0/24
+#sudo ufw allow Deluge
+#sudo ufw limit ssh
+#sudo ufw enable
 
 #####################
 ###### 2.Basic ######
 #####################
 #sudo pacman -S --needed stow neovim git vim firefox wget zsh dash bat pkgfile thunderbird
 #sudo pacman -S --needed fzf zoxide unzip unrar bc sysstat tk less ripgrep pyenv python-pipx
-#sudo pacman -S --needed nvidia acpi_call nvidia-utils nvidia-settings brightnessctl
+#sudo pacman -S --needed nvidia-dkms acpi_call-dkms nvidia-utils nvidia-settings brightnessctl
 #sudo pacman -S --needed libva-nvidia-driver vulkan-mesa-layers lib32-vulkan-mesa-layers nvidia-prime
 #
 #sudo systemctl enable NetworkManager
@@ -155,10 +154,8 @@
 ################################################
 ########### lvim, doom emacs, vscode ###########
 ################################################
-pipx install pyflakes isort pipenv nose pytest ruff pyright
-npm i -g yarn
-sudo pacman -S --needed lazygit git make cargo ripgrep direnv
-
-git clone https://github.com/alokshandilya/nvim ~/.config/nvim
-
-npm i -g js-beautify markdownlint yarn
+#npm i -g js-beautify markdownlint yarn
+#pipx install pyflakes isort pipenv nose pytest ruff pyright
+#sudo pacman -S --needed lazygit git make cargo ripgrep direnv
+# mv ~/.config/nvim ~/.config/nvim.bak
+#git clone https://github.com/alokshandilya/nvim ~/.config/nvim

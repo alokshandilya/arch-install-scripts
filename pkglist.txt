@@ -63,7 +63,6 @@ vulkan-headers
 vulkan-icd-loader
 vulkan-intel
 vulkan-mesa-layers
-vulkan-radeon
 vulkan-swrast
 vulkan-tools
 mesa
@@ -120,7 +119,6 @@ lib32-vulkan-mesa-layers
 lib32-keyutils
 lib32-libva-mesa-driver
 lib32-libxt
-lib32-vulkan-radeon
 lib32-krb5
 lib32-libva-vdpau-driver
 lib32-libxxf86vm
