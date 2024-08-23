@@ -13,7 +13,7 @@
 ####################
 ###### 1.Core ######
 ####################
-#sudo pacman -S --needed btrfs-progs linux-zen-headers linux-firmware vim intel-ucode snapper archlinux-keyring 
+#sudo pacman -S --needed btrfs-progs linux-headers linux-firmware vim intel-ucode snapper archlinux-keyring 
 #sudo pacman -S --needed wpa_supplicant mtools dosfstools base-devel avahi xdg-user-dirs xdg-user-dirs-gtk
 #sudo pacman -S --needed xdg-utils gvfs gvfs-smb gvfs-mtp nfs-utils inetutils dnsutils bluez bluez-utils blueman cups
 #sudo pacman -S --needed alsa-utils pipewire pipewire-alsa pipewire-pulse pavucontrol bash-completion openssh rsync reflector
@@ -31,8 +31,9 @@
 #####################
 #sudo pacman -S --needed stow neovim git vim firefox wget zsh dash bat pkgfile thunderbird
 #sudo pacman -S --needed fzf zoxide unzip unrar bc sysstat tk less ripgrep pyenv python-pipx
-#sudo pacman -S --needed nvidia-dkms acpi_call-dkms nvidia-utils nvidia-settings brightnessctl
-
+#sudo pacman -S --needed nvidia acpi_call nvidia-utils nvidia-settings brightnessctl
+#sudo pacman -S --needed libva-nvidia-driver vulkan-mesa-layers lib32-vulkan-mesa-layers nvidia-prime
+#
 #sudo systemctl enable NetworkManager
 #sudo systemctl enable ufw.service
 #sudo systemctl enable bluetooth.service
@@ -51,7 +52,7 @@
 #####################
 # win fonts from iso
 #sudo pacman -S --needed ttf-jetbrains-mono-nerd ttf-firacode-nerd ttf-jetbrains-mono
-#
+
 ###################################
 ####### 4.Paru (AUR helper ) ######
 ###################################
@@ -70,7 +71,7 @@
 #  printf "###### paru is already installed ######\n"
 #  printf "#######################################\n"
 #fi
-#
+
 ###############################
 ####### 5. Themes, Icons ######
 ###############################
@@ -88,8 +89,9 @@
 ###################################################
 #sudo pacman -S --needed python-xdg python-pywlroots python-dbus-next python-iwlib xorg-xwayland python-setproctitle wl-clipboard wl-clip-persist
 #sudo pacman -S --needed jupyter_console khal nwg-look polkit-gnome gnome-keyring grim kvantum-theme-materia kvantum-qt5 swww bpytop yazi rofi-wayland exa
-#sudo pacman -S --needed qt5ct qt6ct dunst ffmpegthumbnailer xarchiver gammastep xdg-desktop-portal xdg-desktop-portal-wlr
+#sudo pacman -S --needed qt5ct qt6ct ffmpegthumbnailer xarchiver gammastep xdg-desktop-portal xdg-desktop-portal-wlr mako kanshi
 #sudo pacman -S --needed thunar thunar-volman tumbler catfish thunar-archive-plugin thunar-media-tags-plugin poppler-glib libgsf libgepub libopenraw mlocate
+#paru -S --needed qtile-extras-git kitty
 #mv ~/.config/qtile ~/.config/qtile.bak
 #git clone https://github.com/alokshandilya/qtile.git ~/.config/qtile
 #mkdir -p ~/.config/alacritty/themes
@@ -134,14 +136,14 @@
 ###############################################
 ########### zsh, fnm, docker, pyenv ###########
 ###############################################
-#paru -S --needed pkgfile unzip wget unrar bc sysstat tk
-#paru -S --needed tidy shellcheck python-pipx glow
+#paru -S --needed pkgfile unzip wget unrar bc sysstat tk zsh
+#paru -S --needed tidy shellcheck-bin python-pipx glow
 #paru -S --needed starship ttf-twemoji docker docker-buildx
 ## sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 #sudo systemctl enable docker.socket
 #sudo usermod -aG docker aloks
 #sudo pkgfile --update
-#### 
+ 
 #chsh -s /usr/bin/zsh
 #zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 #curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
@@ -151,13 +153,10 @@
 ################################################
 ########### lvim, doom emacs, vscode ###########
 ################################################
-#pipx install black pyflakes isort pipenv nose pytest ruff pyright
-#npm i -g yarn
-#sudo pacman -S --needed lazygit git make cargo ripgrep emacs direnv
+pipx install pyflakes isort pipenv nose pytest ruff pyright
+npm i -g yarn
+sudo pacman -S --needed lazygit git make cargo ripgrep direnv
 
-#LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
+git clone https://github.com/alokshandilya/nvim ~/.config/nvim
 
-#git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-#~/.config/emacs/bin/doom install
-
-### #npm i -g js-beautify markdownlint yarn
+npm i -g js-beautify markdownlint yarn
