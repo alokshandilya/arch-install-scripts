@@ -32,7 +32,6 @@
 #sudo pacman -S --needed fzf zoxide unzip unrar bc sysstat tk less ripgrep pyenv python-pipx
 #sudo pacman -S --needed nvidia-dkms acpi_call-dkms nvidia-utils nvidia-settings brightnessctl
 #sudo pacman -S --needed libva-nvidia-driver vulkan-mesa-layers lib32-vulkan-mesa-layers nvidia-prime
-#
 #sudo systemctl enable NetworkManager
 #sudo systemctl enable ufw.service
 #sudo systemctl enable bluetooth.service
@@ -50,7 +49,7 @@
 ###### 3.Fonts ######
 #####################
 # win fonts from iso
-#sudo pacman -S --needed ttf-jetbrains-mono-nerd ttf-firacode-nerd ttf-jetbrains-mono
+#sudo pacman -S --needed ttf-jetbrains-mono-nerd ttf-firacode-nerd ttf-jetbrains-mono ttf-cascadia-code-nerd
 
 ###################################
 ####### 4.Paru (AUR helper ) ######
@@ -78,6 +77,7 @@
 #git clone https://github.com/vinceliuice/WhiteSur-gtk-theme.git --depth=1
 #cd WhiteSur-gtk-theme
 #./install.sh
+## close firefox before this next command
 #./tweaks.sh -f monterey
 #cd ..
 #git clone https://github.com/vinceliuice/Qogir-icon-theme.git
@@ -121,18 +121,9 @@
 ##################################################
 # COPY AND RUN ON ANOTHER TERM INSTANCE (TO SAVE TIME)
 #
-#paru -S --needed spotify spotify-adblock-git visual-studio-code-bin ananicy-cpp
-#paru -S --needed android-sdk-platform-tools anydesk-bin caffeine-ng google-earth-pro
-#paru -S --needed mailspring masterpdfeditor-free xdman zoom zramd envycontrol dropbox
-#paru -S --needed nohang-git auto-cpufreq appimagelauncher xbanish betterlockscreen
-#paru -S --needed downgrade pandoc-bin ttf-cascadia-code-nerd
-
-#sudo usermod -aG adbusers, kvm aloks
-#sudo systemctl enable --now zramd.service
-#sudo systemctl enable --now ananicy-cpp.service
-#sudo systemctl enable --now nohang-desktop.service
-#sudo systemctl enable --now systemd-oomd.service
-#sudo systemctl enable --now auto-cpufreq.service
+#paru -S --needed spotify visual-studio-code-bin android-sdk-platform-tools masterpdfeditor-free
+#paru -S --needed zoom envycontrol dropbox downgrade pandoc-bin
+#sudo usermod -aG adbusers,kvm aloks
 
 ###############################################
 ########### zsh, fnm, docker, pyenv ###########
@@ -140,7 +131,7 @@
 #paru -S --needed pkgfile unzip wget unrar bc sysstat tk zsh
 #paru -S --needed tidy shellcheck-bin python-pipx glow
 #paru -S --needed starship ttf-twemoji docker docker-buildx
-## sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
+##sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 #sudo systemctl enable docker.socket
 #sudo usermod -aG docker aloks
 #sudo pkgfile --update
@@ -154,6 +145,8 @@
 ################################################
 ########### lvim, doom emacs, vscode ###########
 ################################################
+## fnm ls-remote
+## fnm install <node-version>
 #npm i -g js-beautify markdownlint yarn
 #pipx install pyflakes isort pipenv nose pytest ruff pyright
 #sudo pacman -S --needed lazygit git make cargo ripgrep direnv
