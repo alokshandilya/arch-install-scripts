@@ -31,6 +31,7 @@
 #sudo pacman -S --needed stow neovim git vim firefox wget zsh dash bat pkgfile thunderbird
 #sudo pacman -S --needed fzf zoxide unzip unrar bc sysstat tk less ripgrep pyenv python-pipx
 #sudo pacman -S --needed nvidia-dkms acpi_call-dkms nvidia-utils nvidia-settings brightnessctl
+#sudo pacman -S --needed egl-wayland lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia
 #sudo pacman -S --needed libva-nvidia-driver vulkan-mesa-layers lib32-vulkan-mesa-layers nvidia-prime
 #sudo systemctl enable NetworkManager
 #sudo systemctl enable ufw.service
