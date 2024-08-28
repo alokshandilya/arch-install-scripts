@@ -97,8 +97,6 @@
 #paru -S --needed qtile-extras-git kitty
 #mv ~/.config/qtile ~/.config/qtile.bak
 #git clone https://github.com/alokshandilya/qtile.git ~/.config/qtile
-#mkdir -p ~/.config/alacritty/themes
-#git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
 #################################################
 ###################### GIT ######################
@@ -116,7 +114,7 @@
 #mkdir -p ~/.local/share/applications
 #mkdir -p ~/.local/bin/scripts
 #mkdir -p ~/.local/bin/dwmblocks
-#stow .
+##stow .
 
 ##################################################
 ###################### AURs ######################
@@ -133,15 +131,14 @@
 #paru -S --needed pkgfile unzip wget unrar bc sysstat tk zsh
 #paru -S --needed tidy shellcheck-bin python-pipx glow
 #paru -S --needed starship ttf-twemoji docker docker-buildx
-##sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
+#sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
 #sudo systemctl enable docker.socket
 #sudo usermod -aG docker aloks
 #sudo pkgfile --update
- 
+# 
 #chsh -s /usr/bin/zsh
-#zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 #curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
-## pyenv install 3.12.0
+## pyenv install 3.12.4
 
 
 ################################################
