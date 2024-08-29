@@ -1,4 +1,10 @@
-# Steps
+# Using `archinstall` script
+
+This is how I set up my Arch Linux system using `archinstall` script.
+
+> **Note:** I use Arch BTW 🗿
+
+- check [main](https://github.com/alokshandilya/arch-install-scripts/tree/main) branch if don't want to use _archinstall_ script
 
 ## Boot to ISO and check Networking
 
@@ -17,114 +23,50 @@ I usually set bigger font with `setfont ter-132n` & connect to _WiFi_ :
 
 - `timedatectl set-ntp true`, check with `timedatectl status`
 
-## Partition the disk(s)
-
-I install Arch on my ~233G SSD.
-
-| _nvme0n1_ | _fstype_ | _size_ | _mount point_                                                  | _Label_ |
-| --------- | -------- | ------ | -------------------------------------------------------------- | ------- |
-| nvme0n1p1 | fat32    | 550M   | /boot/efi                                                      | EFI     |
-| nvme0n1p2 | btrfs    | 232G   | /<br>/home<br>/var/log<br>/.snapshots<br>/var/cache/pacman/pkg | BTRFS   |
-
-- `nvme0n1p2` remaining size. **_~232G_**
-  > later set up `zram`
-
-## Format and Mount the partitions
-
-uncomment `ParallelDownloads` in `/etc/pacman.conf` and install _git_
-
-```sh
-pacman -Sy git archlinux-keyring
-```
-
-- if mirrors are slow `reflector -c India -f 5 -l 5 --sort rate --verbose --save /etc/pacman.d/mirrorlist`
-
-```sh
-git clone https://github.com/alokshandilya/arch-install-scripts.git
-```
-
-all scripts are executable but still have a glance on the commands and **modify** accordingly
-
-```sh
-./1-chroot.sh
-```
-
-- run 🏃`./1-chroot.sh`
-  - formats the partitions
-  - makes btrfs subvolumes
-  - mounts the partitions
-  - pacstraps base, kernel etc to `/mnt`
-  - generates fstab based on UUIDs _(remove subvolid later from `/etc/fstab`)_
-
-```sh
-arch-chroot /mnt
-```
-
 ## Install Arch Linux
 
 - in `/etc/pacman.conf`
-  - uncomment `ParallelDownloads`
-  - add `ILoveCandy`
-  - enable `multilib` repository
-- Delete `subvolid` from `/etc/fstab`
-- vim `/etc/locale.gen` and uncomment `en_IN` and `en_US` **UTF-8**
-- `locale-gen`
-- change password in `2-base-install.sh`
-- run 🏃`2-base-install.sh`
+  - uncomment **_ParallelDownloads_**
+  - add **_ILoveCandy_**
+  - enable **_multilib_** repository
 
 ```sh
-./2-base-install.sh
+pacman -Syy
+pacman -S archinstall neovim archlinux-keyring
+archinstall # with btrfs, qtile
+reboot
 ```
 
-- edit `/etc/default/grub`
-  - `blkid > blkit.txt` _:vs_ _:bp_ _:bn_ in vim `/etc/default/grub`
-    - note `nvme0n1p2` _(partition with subvolumes)_ UUID
-  - `GRUB_CMDLINE_LINUX=cryptdevice=UUID=xxxxx:cryptroot rootfstype=btrfs`
-  - `grub-mkconfig -o /boot/grub/grub.cfg`
+# After Install
 
-> run 🏃 `3-touchpad.sh` if to use Window Manager (on laptop) to enable trackpad reverse scrolling etc.
+```sh
+cd ~
+git clone https://github.com/alokshandilya/arch-install-scripts.git
+cd arch-install-scripts
+./0-arch-install-script.sh # run in parts after checking in neovim term
+```
 
-- edit `/etc/mkinitcpio.conf`
+- switch to qtile (wayland)
+- edit _/usr/share/wayland-sessions/qtile-wayland.desktop_
+  - `Exec=/home/aloks/.local/bin/./wayland-start.sh`
+- edit _/etc/mkinitcpio.conf_
   - `MODULES=(btrfs crc32c-intel intel_agp i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm)`
-  - `HOOKS=(.... encrypt filesystems fsck)`
-- `mkinitcpio -P`
-- do `exit` , `umount -a` , `reboot`
-
-## Post Installation
-
-- connect to wifi with `nmtui`
-
-### Install DWM :robot:
+  - `HOOKS=(.... encrypt filesystems fsck)` _(if using encryption)_
 
 ```sh
-./4-dwm-install.sh
+mkinitcpio -P
 ```
-- `COMPRESSZST=(zstd -c -T0 --auto-threads=logical --adapt --exclude-compressed -)`
-  - in `/etc/makepkg.conf` to reduce compression time while building AURs
+
+- edit _/etc/makepkg.conf_ to reduce compression time while building AURs
+  - `COMPRESSZST=(zstd -c -T0 --auto-threads=logical --adapt --exclude-compressed -)`
 - uncomment `BottomUp` and `NewsOnUpgrade` in `/etc/paru.conf`
 - reboot
-- run 🏃`5-packages-AUR.sh`
-  - AURs are commented
-- install rest of the packages
+
+### Install packages from `pkglist.txt`
 
 ```sh
 cd ~/arch-install-scripts
-paru -S stow
 paru -S --needed - < pkglist.txt
-```
-
-#### Dotfiles :star2:
-
-- `4-dwm-install` script also installs paru
-
-```sh
-git clone https://github.com/alokshandilya/dotfiles.git
-git clone https://github.com/alokshandilya/nvim.git ~/.config/nvim
-cd dotfiles
-mkdir -p ~/.local/share/applications
-mkdir -p ~/.local/bin/scripts
-mkdir -p ~/.local/bin/dwmblocks
-stow .
 ```
 
 ### Reduce Swappiness
@@ -135,4 +77,14 @@ touch /etc/sysctl.d/99-swappiness.conf
 echo "vm.swappiness=1" >> /etc/sysctl.d/99-swappiness.conf
 ```
 
-- reboot
+## Also
+
+- edit `/etc/locale.gen` and uncomment `en_IN` and `en_US` _(default by archinstall)_ **UTF-8**
+- delete `subvolid` from `/etc/fstab`
+- [DRM Kernel Mode Setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
+- [Gnome Keyring](https://wiki.archlinux.org/title/GNOME/Keyring#Using_the_keyring)
+- `shutdown -h now`
+  - if using `vscode` then, configure runtime arguments
+    - `password-store` as `gnome`
+    - `disable-hardware-acceleration` as `true`
+- setup [snapper](SNAPPER.md)
