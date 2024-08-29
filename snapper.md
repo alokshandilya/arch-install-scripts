@@ -1,10 +1,4 @@
-# Arch-install-scripts
-
-My personal scripts for installing arch linux
-
-- **_[arch-install-cheatsheet](https://github.com/alokshandilya/arch-install-cheatsheet.git)_**
-
-## Setting up Snapper
+# Setting up Snapper
 
 - change to root user
 
