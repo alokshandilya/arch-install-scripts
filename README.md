@@ -1,136 +1,212 @@
-# Arch-install-scripts
+# Arch Linux Installation Cheatsheet
 
-My personal scripts for installing arch linux
+My personal cheatsheet for Arch Installation.
 
-- **_[arch-install-cheatsheet](https://github.com/alokshandilya/arch-install-cheatsheet.git)_**
+- download latest ISO and verify checksums
+  - [**Download Arch Linux**](https://archlinux.org/download)
+- scripts to install, _snapper setup_
+  - [**Install Scripts**](https://github.com/alokshandilya/arch-install-scripts.git)
 
-## Setting up Snapper
+## Boot to ISO and check Networking
 
-- change to root user
+I usually set bigger font with `setfont ter-132n` & connect to _WiFi_ :
+
+- `iwctl`
+- `device list`
+- `station wlan0 get-networks` _(it's wlan0 in my case)_
+- `station wlan0 connect "xxx"`
+- `ip a`
+- `ping www.archlinux.org`
+
+> connecting with Ethernet or mobile USB tethering is enabled by **_default_**
+
+### Update system clock
+
+- `timedatectl set-ntp true`, check with `timedatectl status`
+
+## Partition the disk(s)
+
+I install Arch on my ~233G SSD.
+
+| _nvme0n1_ | _fstype_ | _size_ | _mount point_                                                  | _Label_ |
+| --------- | -------- | ------ | -------------------------------------------------------------- | ------- |
+| nvme0n1p1 | fat32    | 550M   | /boot/efi                                                      | EFI     |
+| nvme0n1p2 | btrfs    | 232G   | /<br>/home<br>/var/log<br>/.snapshots<br>/var/cache/pacman/pkg | BTRFS   |
+
+- `nvme0n1p2` remaining size. **_~232G_**
+  > later set up `zram`
+
+## Format and Mount the partitions
+
+uncomment `ParallelDownloads` in `/etc/pacman.conf` and install _git_
+
+```sh
+pacman -Sy git archlinux-keyring
+```
+
+- if mirrors are slow `reflector -c India -f 5 -l 5 --sort rate --verbose --save /etc/pacman.d/mirrorlist`
+
+```sh
+git clone https://github.com/alokshandilya/arch-install-scripts.git
+```
+
+all scripts are executable but still have a glance on the commands and **modify** accordingly
+
+```sh
+./1-chroot.sh
+```
+
+- run 🏃`./1-chroot.sh`
+  - formats the partitions
+  - makes btrfs subvolumes
+  - mounts the partitions
+  - pacstraps base, kernel etc to `/mnt`
+  - generates fstab based on UUIDs _(remove subvolid later from `/etc/fstab`)_
+
+```sh
+arch-chroot /mnt
+```
+
+## Install Arch Linux
+
+- in `/etc/pacman.conf`
+  - uncomment `ParallelDownloads`
+  - add `ILoveCandy`
+  - enable `multilib` repository
+- Delete `subvolid` from `/etc/fstab`
+- vim `/etc/locale.gen` and uncomment `en_IN` and `en_US` **UTF-8**
+- `locale-gen`
+- change password in `2-base-install.sh`
+- run 🏃`2-base-install.sh`
+
+```sh
+./2-base-install.sh
+```
+
+- edit `/etc/default/grub`
+  - `blkid > blkit.txt` _:vs_ _:bp_ _:bn_ in vim `/etc/default/grub`
+    - note `nvme0n1p2` _(partition with subvolumes)_ UUID
+  - `GRUB_CMDLINE_LINUX=cryptdevice=UUID=xxxxx:cryptroot rootfstype=btrfs`
+  - `grub-mkconfig -o /boot/grub/grub.cfg`
+
+> run 🏃 `3-touchpad.sh` if to use Window Manager (on laptop) to enable trackpad reverse scrolling etc.
+
+- edit `/etc/mkinitcpio.conf`
+  - `MODULES=(btrfs crc32c-intel intel_agp i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm)`
+  - `HOOKS=(.... encrypt filesystems fsck)`
+- `mkinitcpio -P`
+- do `exit` , `umount -a` , `reboot`
+
+## Post Installation
+
+- connect to wifi with `nmtui`
+
+### Install DWM :robot:
+
+```sh
+./4-dwm-install.sh
+```
+- `COMPRESSZST=(zstd -c -T0 --auto-threads=logical --adapt --exclude-compressed -)`
+  - in `/etc/makepkg.conf` to reduce compression time while building AURs
+- uncomment `BottomUp` and `NewsOnUpgrade` in `/etc/paru.conf`
+- reboot
+- run 🏃`5-packages-AUR.sh`
+  - AURs are commented
+- install rest of the packages
+
+```sh
+cd ~/arch-install-scripts
+paru -S stow
+paru -S --needed - < pkglist.txt
+```
+
+#### Dotfiles :star2:
+
+- `4-dwm-install` script also installs paru
+
+```sh
+git clone https://github.com/alokshandilya/dotfiles.git
+git clone https://github.com/alokshandilya/nvim.git ~/.config/nvim
+cd dotfiles
+mkdir -p ~/.local/share/applications
+mkdir -p ~/.local/bin/scripts
+mkdir -p ~/.local/bin/dwmblocks
+stow .
+```
+
+### Reduce Swappiness
 
 ```sh
 su -
+touch /etc/sysctl.d/99-swappiness.conf
+echo "vm.swappiness=1" >> /etc/sysctl.d/99-swappiness.conf
 ```
 
-- unmount and remove `/.snapshots` directory
+- reboot
+
+## Development Environment :computer:
+
+- [x] fish
+- [x] fnm
+  - `fnm ls-remote`
+  - install node, npm
 
 ```sh
-umount /.snapshots
+npm i -g prettier typescript typescript-language-server live-server
 ```
 
-```sh
-rm -r /.snapshots
-```
-
-- create snapper config
+- [x] git
 
 ```sh
-snapper -c root create-config /
-```
-
-- remove extra snapshot subvol
-
-```sh
-btrfs subvol del /.snapshots
-```
-
-- re-create `/.snapshots`
-
-```sh
-mkdir /.snapshots
-```
-
-- mount `/.snapshots`, it should be in `/etc/fstab` already
-
-```sh
-mount -a
-```
-
-- change permission
-
-```sh
-chmod 750 /.snapshots
+git config --global core.editor nvim
+git config --global user.name "your_name"
+git config --global user.email "your_email@example.com"
+ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
 ```sh
-chmod a+rx /.snapshots
+bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+exit
 ```
 
 ```sh
-chown :aloks /.snapshots
+cat ~/.ssh/id_ed25519.pub
+# Then select and copy the contents of the id_ed25519.pub file
+# displayed in the terminal to your clipboard
 ```
 
-> replace `aloks` with username
+> Github $\to$ SSH and GPG keys $\to$ Add new $\to$ Title **(Personal Arch Linux)** $\to$ Key (paste)
 
-- modify snapper config
+- [x] setup `nvim`
+  - `v` alias for [nvim](https://github.com/alokshandilya/nvim.git)
+
+- [x] setup `sdkman` for fish
 
 ```sh
-vim /etc/snapper/configs/root
+curl -s "https://get.sdkman.io" | bash
+# path already set in my fish config
+# install omf
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+omf install sdk
+sdk ls java
+sdk install java #version
 ```
 
-- `ALLOW_USERS="aloks"`
-
-  > replace `aloks` with username
-
-  - `TIMELINE_MIN_AGE="1800"`
-  - `TIMELINE_LIMIT_HOURLY="5"`
-  - `TIMELINE_LIMIT_DAILY="7"`
-  - `TIMELINE_LIMIT_WEEKLY="0"`
-  - `TIMELINE_LIMIT_MONTHLY="0"`
-  - `TIMELINE_LIMIT_YEARLY="0"`
-
-- enable and start services
-  - `systemctl enable --now snapper-timeline.timer`
-  - `systemctl enable --now snapper-cleanup.timer`
-  - `systemctl enable --now grub-btrfsd.service`
-    - snapshot will directly be added to grub bootloader list
-- `snapper -c root list`
-
-  - `0` is current system
-
-- install
+- [x] nvim `jdtls` from `:LspInstallInfo`
 
 ```sh
-paru -S --needed snap-pac-grub snapper-gui snap-pac rsync
+pip install pynvim
+git clone git@github.com:alokshandilya/nvim.git ~/.config/nvim
+mkdir -p ~/.local/share/fonts/nvim-fonts
+cp -r ~/.config/nvim/fonts ~/.local/share/fonts/nvim-fonts
+paru -S --needed google-java-format
+git clone git@github.com:microsoft/java-debug.git ~/.config/nvim/java-debug
+cd ~/.config/nvim/java-debug
+./mvnw clean install
+git clone git@github.com:microsoft/vscode-java-test.git ~/.config/nvim/vscode-java-test
+cd ~/.config/nvim/vscode-java-test
+npm i
+npm run build-plugin
 ```
-
-- create pacman hook `/etc/pacman.d/hooks/95-bootbackup.hook`
-
-```sh
-[Trigger]
-Operation = Upgrade
-Operation = Install
-Operation = Remove
-Type = Path
-Target = usr/lib/modules/*/vmlinuz
-
-[Action]
-Depends = rsync
-Description = Backing up /boot...
-When = PostTransaction
-Exec = /usr/bin/rsync -a --delete /boot /.bootbackup
-```
-
-- create first snapshot
-
-```sh
-snapper -c root create -c timeline -d "first snapshot"
-```
-
-- `snapper -c root list`
-  - `1` is the firstSnapshot
-  - check snapshot entry in grub _[read-only]_
-
-## Restoring with Arch-Live-ISO
-
-- `mount /dev/nvme0n1p2 /mnt`
-  - here nvme0n1p2 is the partition with btrfs subvolumes
-  - check subvolumes `ls /mnt`
-- find the number of the snapshot you want to recover
-  - `grep -r '<date>' /mnt/@snapshots/*/info.xml`
-  - `grep -r '<description>' /mnt/@snapshots/*/info.xml`
-- `mv /mnt/@ /mnt/@.broken` _OR_ `rm -rf /mnt/@`
-  - removing can take 5-10 sec
-- <pre>btrfs subvol snapshot /mnt/@snapshots/<i><b>NUM</b></i>/snapshot /mnt/@</pre>
-  - here `NUM` is snapshot number
-- `reboot`
