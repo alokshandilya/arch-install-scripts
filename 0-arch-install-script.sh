@@ -122,7 +122,7 @@
 # COPY AND RUN ON ANOTHER TERM INSTANCE (TO SAVE TIME)
 #
 #paru -S --needed spotify visual-studio-code-bin android-sdk-platform-tools masterpdfeditor-free
-#paru -S --needed zoom envycontrol dropbox downgrade pandoc-bin
+#paru -S --needed zoom envycontrol dropbox downgrade pandoc-bin postman-bin google-chrome
 #sudo usermod -aG adbusers,kvm aloks
 
 ###############################################

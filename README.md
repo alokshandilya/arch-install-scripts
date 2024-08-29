@@ -88,3 +88,14 @@ echo "vm.swappiness=1" >> /etc/sysctl.d/99-swappiness.conf
     - `password-store` as `gnome`
     - `disable-hardware-acceleration` as `true`
 - setup [snapper](SNAPPER.md)
+- postgreSQL setup
+  - `sudo -iu postgres`
+  - `initdb -D /var/lib/postgres/data`
+  - `sudo chattr +C /var/lib/postgres/data`
+  - `exit`
+  - `sudo systemctl enable --now postgresql`
+  - `sudo -iu postgres`
+  - `createuser --interactive`
+  - `createdb $USER`
+  - `exit`
+  - [pgadmin4](https://www.pgadmin.org/download/pgadmin-4-python/)
