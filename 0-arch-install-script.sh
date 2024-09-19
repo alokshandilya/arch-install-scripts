@@ -90,7 +90,7 @@
 ###################### QTILE ######################
 ###################################################
 #sudo pacman -S --needed python-xdg python-pywlroots python-dbus-next python-iwlib xorg-xwayland python-setproctitle wl-clipboard wl-clip-persist
-#sudo pacman -S --needed plasma-wayland-protocols wayland-protocols wlr-protocols grim slurp
+#sudo pacman -S --needed plasma-wayland-protocols wayland-protocols wlr-protocols grim slurp qt5-wayland
 #sudo pacman -S --needed jupyter_console khal nwg-look polkit-gnome gnome-keyring kvantum-theme-materia kvantum-qt5 swww bpytop yazi rofi-wayland exa
 #sudo pacman -S --needed qt5ct qt6ct ffmpegthumbnailer xarchiver gammastep xdg-desktop-portal xdg-desktop-portal-wlr mako kanshi
 #sudo pacman -S --needed thunar thunar-volman tumbler catfish thunar-archive-plugin thunar-media-tags-plugin poppler-glib libgsf libgepub libopenraw mlocate
@@ -128,7 +128,7 @@
 ###############################################
 ########### zsh, fnm, docker, pyenv ###########
 ###############################################
-#paru -S --needed pkgfile unzip wget unrar bc sysstat tk zsh
+#paru -S --needed pkgfile unzip wget unrar bc sysstat tk zsh zsh-syntax-highlighting zsh-autosuggestions
 #paru -S --needed tidy shellcheck-bin python-pipx glow
 #paru -S --needed starship ttf-twemoji docker docker-buildx
 #sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf
@@ -147,7 +147,7 @@
 ## fnm ls-remote
 ## fnm install <node-version>
 #npm i -g js-beautify markdownlint yarn
-#pipx install pyflakes isort pipenv nose pytest ruff pyright
-#sudo pacman -S --needed lazygit git make cargo ripgrep direnv
+#sudo pacman -S --needed lazygit git make cargo ripgrep direnv python-pytest pyright ruff
+#sudo pacman -S --needed 
 # mv ~/.config/nvim ~/.config/nvim.bak
 #git clone https://github.com/alokshandilya/nvim ~/.config/nvim

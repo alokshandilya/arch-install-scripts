@@ -1,3 +1,5 @@
+zed
+seahorse
 cmatrix
 jdk-openjdk
 zip
@@ -46,6 +48,7 @@ ttf-ibm-plex
 ttf-joypixels
 ttf-liberation
 ttf-opensans
+ttf-ubuntu-font-family
 libreoffice-fresh
 mpv
 gparted

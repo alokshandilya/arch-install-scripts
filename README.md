@@ -136,3 +136,27 @@ echo "vm.swappiness=1" >> /etc/sysctl.d/99-swappiness.conf
 ```
 
 - reboot
+
+## Also
+
+- edit `/etc/locale.gen` and uncomment `en_IN` and `en_US` _(default by archinstall)_ **UTF-8**
+- delete `subvolid` from `/etc/fstab`
+- [DRM Kernel Mode Setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
+- [Gnome Keyring](https://wiki.archlinux.org/title/GNOME/Keyring#Using_the_keyring)
+  - logout, login and check **Login** is unlocked through _seahorse_
+  - if using `vscode` then, configure runtime arguments
+    - `password-store` as `gnome`
+    - `disable-hardware-acceleration` as `true`
+- setup [snapper](SNAPPER.md)
+- postgreSQL setup
+  - `paru -S postgresql`
+  - `sudo -iu postgres`
+  - `initdb -D /var/lib/postgres/data`
+  - `exit`
+  - `sudo chattr +C /var/lib/postgres/data`
+  - `sudo systemctl enable --now postgresql`
+  - `sudo -iu postgres`
+  - `createuser --interactive`
+  - `createdb $USER`
+  - `exit`
+  - [pgadmin4](https://www.pgadmin.org/download/pgadmin-4-python/)

@@ -85,9 +85,10 @@ vim /etc/snapper/configs/root
 - install
 
 ```sh
-paru -S --needed snap-pac-grub snapper-gui snap-pac rsync
+paru -S --needed snap-pac rsync
 ```
 
+- `sudo mkdir /etc/pacman.d/hooks`
 - create pacman hook `/etc/pacman.d/hooks/95-bootbackup.hook`
 
 ```sh
