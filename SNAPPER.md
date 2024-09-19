@@ -4,57 +4,17 @@
 
 ```sh
 su -
-```
-
-- unmount and remove `/.snapshots` directory
-
-```sh
+# unmount and remove /.snapshots directory
 umount /.snapshots
-```
-
-```sh
 rm -r /.snapshots
-```
-
-- create snapper config
-
-```sh
-snapper -c root create-config /
-```
-
-- remove extra snapshot subvol
-
-```sh
-btrfs subvol del /.snapshots
-```
-
-- re-create `/.snapshots`
-
-```sh
+snapper -c root create-config /  # create snapper config
+btrfs subvol del /.snapshots  # remove extra snapshot subvolume
 mkdir /.snapshots
-```
-
-- mount `/.snapshots`, it should be in `/etc/fstab` already
-
-```sh
-mount -a
-```
-
-- change permission
-
-```sh
+mount -a  # mount /.snapshots, it should be in /etc/fstab already
 chmod 750 /.snapshots
-```
-
-```sh
 chmod a+rx /.snapshots
+chown :$USER /.snapshots
 ```
-
-```sh
-chown :aloks /.snapshots
-```
-
-> replace `aloks` with username
 
 - modify snapper config
 
@@ -76,7 +36,7 @@ vim /etc/snapper/configs/root
 - enable and start services
   - `systemctl enable --now snapper-timeline.timer`
   - `systemctl enable --now snapper-cleanup.timer`
-  - `systemctl enable --now grub-btrfsd.service`
+  - `systemctl enable --now grub-btrfsd.service`  _(if using grub)_
     - snapshot will directly be added to grub bootloader list
 - `snapper -c root list`
 
@@ -85,10 +45,13 @@ vim /etc/snapper/configs/root
 - install
 
 ```sh
-paru -S --needed snap-pac-grub snapper-gui snap-pac rsync
+paru -S --needed snap-pac rsync
+paru -S --needed snap-pac-grub  # if using grub
+paru -S --needed snapper-gui  # optional
 ```
 
-- create pacman hook `/etc/pacman.d/hooks/95-bootbackup.hook`
+- `sudo mkdir /etc/pacman.d/hooks`
+- `sudo vim /etc/pacman.d/hooks/95-bootbackup.hook`
 
 ```sh
 [Trigger]
