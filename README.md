@@ -82,6 +82,8 @@ echo "vm.swappiness=1" >> /etc/sysctl.d/99-swappiness.conf
 - edit `/etc/locale.gen` and uncomment `en_IN` and `en_US` _(default by archinstall)_ **UTF-8**
 - delete `subvolid` from `/etc/fstab`
 - [DRM Kernel Mode Setting](https://wiki.archlinux.org/title/NVIDIA#DRM_kernel_mode_setting)
+  - `sudo vim /etc/modprobe.d/nvidia_drm.conf`
+    - `options nvidia_drm modeset=1`
 - [Gnome Keyring](https://wiki.archlinux.org/title/GNOME/Keyring#Using_the_keyring)
 - `shutdown -h now`
   - if using `vscode` then, configure runtime arguments
@@ -91,11 +93,12 @@ echo "vm.swappiness=1" >> /etc/sysctl.d/99-swappiness.conf
   - `:Copilot signin` for neovim copilot
 - setup [snapper](SNAPPER.md)
 - postgreSQL setup
+  - `sudo pacman -S postgresql`
   - `sudo -iu postgres`
   - `initdb -D /var/lib/postgres/data`
   - `sudo chattr +C /var/lib/postgres/data`
-  - `exit`
   - `sudo systemctl enable --now postgresql`
+  - `exit`
   - `sudo -iu postgres`
   - `createuser --interactive`
   - `createdb $USER`
