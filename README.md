@@ -87,6 +87,8 @@ echo "vm.swappiness=1" >> /etc/sysctl.d/99-swappiness.conf
   - if using `vscode` then, configure runtime arguments
     - `password-store` as `gnome`
     - `disable-hardware-acceleration` as `true`
+- `gh auth login` to authenticate with GitHub after checking `login` keyring in `seahorse`
+  - `:Copilot signin` for neovim copilot
 - setup [snapper](SNAPPER.md)
 - postgreSQL setup
   - `sudo -iu postgres`

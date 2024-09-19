@@ -128,7 +128,7 @@
 ###############################################
 ########### zsh, fnm, docker, pyenv ###########
 ###############################################
-#paru -S --needed pkgfile unzip wget unrar bc sysstat tk zsh
+#paru -S --needed pkgfile unzip wget unrar bc sysstat tk zsh zsh-syntax-highlighting zsh-autosuggestions
 #paru -S --needed tidy shellcheck-bin python-pipx glow
 #paru -S --needed starship ttf-twemoji docker docker-buildx
 #sudo ln -sf /usr/share/fontconfig/conf.avail/75-twemoji.conf /etc/fonts/conf.d/75-twemoji.conf

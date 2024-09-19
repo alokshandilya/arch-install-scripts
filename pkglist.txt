@@ -1,3 +1,4 @@
+seahorse
 cmatrix
 jdk-openjdk
 zip
