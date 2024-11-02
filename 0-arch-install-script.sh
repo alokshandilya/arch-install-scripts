@@ -28,12 +28,13 @@
 #####################
 ###### 2.Basic ######
 #####################
-#sudo pacman -S --needed stow neovim git vim firefox wget zsh dash bat pkgfile thunderbird
+#sudo pacman -S --needed stow neovim git vim firefox wget zsh dash bat pkgfile thunderbird thermald
 #sudo pacman -S --needed fzf zoxide unzip unrar bc sysstat tk less ripgrep pyenv python-pipx
 #sudo pacman -S --needed nvidia-dkms acpi_call-dkms nvidia-utils nvidia-settings brightnessctl
 #sudo pacman -S --needed egl-wayland lib32-nvidia-utils lib32-opencl-nvidia opencl-nvidia
 #sudo pacman -S --needed libva-nvidia-driver vulkan-mesa-layers lib32-vulkan-mesa-layers nvidia-prime
 #sudo systemctl enable NetworkManager
+#sudo systemctl enable thermald.service
 #sudo systemctl enable ufw.service
 #sudo systemctl enable bluetooth.service
 #sudo systemctl enable cups.service
@@ -89,6 +90,8 @@
 ###################################################
 ###################### QTILE ######################
 ###################################################
+#sudo pacman -S --needed feh xsel xclip  # x11 packages
+
 #sudo pacman -S --needed python-xdg python-pywlroots python-dbus-next python-iwlib xorg-xwayland python-setproctitle wl-clipboard wl-clip-persist
 #sudo pacman -S --needed plasma-wayland-protocols wayland-protocols wlr-protocols grim slurp
 #sudo pacman -S --needed jupyter_console khal nwg-look polkit-gnome gnome-keyring kvantum-theme-materia kvantum-qt5 swww bpytop yazi rofi-wayland exa
@@ -103,7 +106,7 @@
 #################################################
 #git config --global init.defaultBranch main
 #git config --global core.editor nvim
-#git config --global user.name alokshandilya
+git config --global user.name "Alok Shandilya"
 #git config --global user.email alok.shandilya10@gmail.com
 
 ######################################################
@@ -123,6 +126,7 @@
 #
 #paru -S --needed spotify visual-studio-code-bin android-sdk-platform-tools masterpdfeditor-free
 #paru -S --needed zoom envycontrol dropbox downgrade pandoc-bin postman-bin google-chrome
+#paru -S --needed caffeine-ng picom-git  # for x11
 #sudo usermod -aG adbusers,kvm aloks
 
 ###############################################

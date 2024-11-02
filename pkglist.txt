@@ -1,3 +1,5 @@
+xorg-xclipboard
+copyq
 seahorse
 cmatrix
 jdk-openjdk

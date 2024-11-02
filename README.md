@@ -96,9 +96,9 @@ echo "vm.swappiness=1" >> /etc/sysctl.d/99-swappiness.conf
   - `sudo pacman -S postgresql`
   - `sudo -iu postgres`
   - `initdb -D /var/lib/postgres/data`
+  - `exit`
   - `sudo chattr +C /var/lib/postgres/data`
   - `sudo systemctl enable --now postgresql`
-  - `exit`
   - `sudo -iu postgres`
   - `createuser --interactive`
   - `createdb $USER`
