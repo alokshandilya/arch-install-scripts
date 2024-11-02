@@ -106,7 +106,7 @@
 #################################################
 #git config --global init.defaultBranch main
 #git config --global core.editor nvim
-git config --global user.name "Alok Shandilya"
+#git config --global user.name alokshandilya
 #git config --global user.email alok.shandilya10@gmail.com
 
 ######################################################
