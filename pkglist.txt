@@ -71,14 +71,12 @@ vulkan-tools
 mesa
 mesa-demos
 mesa-utils
-mesa-vdpau
 opencl-rusticl-mesa
 opencl-nvidia
 ffnvcodec-headers
 lib32-brotli
 lib32-libice
 lib32-libxcrypt
-lib32-mesa-vdpau
 lib32-bzip2
 lib32-libidn2
 lib32-libxdamage
@@ -120,7 +118,7 @@ lib32-libva-intel-driver
 lib32-libxshmfence
 lib32-vulkan-mesa-layers
 lib32-keyutils
-lib32-libva-mesa-driver
+lib32-mesa
 lib32-libxt
 lib32-krb5
 lib32-libva-vdpau-driver
