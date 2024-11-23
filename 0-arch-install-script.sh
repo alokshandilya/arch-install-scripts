@@ -125,7 +125,7 @@
 # COPY AND RUN ON ANOTHER TERM INSTANCE (TO SAVE TIME)
 #
 #paru -S --needed spotify visual-studio-code-bin android-sdk-platform-tools masterpdfeditor-free
-#paru -S --needed zoom envycontrol dropbox downgrade pandoc-bin postman-bin google-chrome
+#paru -S --needed zoom envycontrol dropbox downgrade pandoc-bin postman-bin google-chrome gpu-screen-recorder-gtk
 #paru -S --needed caffeine-ng picom-git  # for x11
 #sudo usermod -aG adbusers,kvm aloks
 
