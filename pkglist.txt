@@ -121,7 +121,6 @@ lib32-keyutils
 lib32-mesa
 lib32-libxt
 lib32-krb5
-lib32-libva-vdpau-driver
 lib32-libxxf86vm
 lib32-wayland
 lib32-libdrm
