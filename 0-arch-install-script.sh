@@ -93,7 +93,7 @@
 #sudo pacman -S --needed feh xsel xclip  # x11 packages
 
 #sudo pacman -S --needed python-xdg python-pywlroots python-dbus-next python-iwlib xorg-xwayland python-setproctitle wl-clipboard wl-clip-persist
-#sudo pacman -S --needed plasma-wayland-protocols wayland-protocols wlr-protocols grim slurp
+#sudo pacman -S --needed plasma-wayland-protocols wayland-protocols wlr-protocols grim slurp python-dbus-fast
 #sudo pacman -S --needed jupyter_console khal nwg-look polkit-gnome gnome-keyring kvantum-theme-materia kvantum-qt5 swww bpytop yazi rofi-wayland exa
 #sudo pacman -S --needed qt5ct qt6ct ffmpegthumbnailer xarchiver gammastep xdg-desktop-portal xdg-desktop-portal-wlr mako kanshi
 #sudo pacman -S --needed thunar thunar-volman tumbler catfish thunar-archive-plugin thunar-media-tags-plugin poppler-glib libgsf libgepub libopenraw mlocate
